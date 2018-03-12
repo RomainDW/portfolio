@@ -396,6 +396,13 @@
                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <div class="col-md-8 mx-auto text-center">
+                    {% for type, flashes in app.session.flashbag.all %}
+                        {% for flash in flashes %}
+                            <div class="alert alert-{{ type }} fade-in">
+                                {{ flash }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
                     {{ form(contact_form ) }}
                 </div>
             </div>

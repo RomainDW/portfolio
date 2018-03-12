@@ -23,7 +23,7 @@ class PortfolioController extends Controller
             ->add('name',TextType::class, array('label' => 'Nom', 'label_attr' => array('class' => 'text-white'), 'attr' => array('placeholder' => 'Entrez votre Nom')) )
             ->add('from', EmailType::class, array('label' => 'email', 'label_attr' => array('class' => 'text-white') , 'attr' => array('placeholder' => 'Entrez votre adresse email')))
             ->add('message', TextareaType::class, array('label_attr' => array('class' => 'text-white'), 'attr' => array('placeholder' => 'Entrez votre message', 'rows' => '5')))
-            ->add('send', SubmitType::class, array('label' => 'Envoyer', 'attr' => array('class' => 'btn-default btn-xl')))
+            ->add('send', SubmitType::class, array('label' => 'Envoyer', 'attr' => array('class' => 'btn-xl btn-light sr-button')))
             ->getForm()
         ;
 
@@ -32,8 +32,6 @@ class PortfolioController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $data = $form->getData();
-
-            dump($data);
 
             $message = \Swift_Message::newInstance()
                 ->setSubject('Contact depuis le portfolio : ' . $data['name'])
@@ -44,6 +42,8 @@ class PortfolioController extends Controller
                     'text/plain'
                 )
             ;
+
+            $this->addFlash('success', 'Votre message a bien été envoyé !');
 
             $this->get('mailer')->send($message);
 
