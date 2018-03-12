@@ -47,6 +47,8 @@ class PortfolioController extends Controller
 
             $this->get('mailer')->send($message);
 
+            return $this->redirect($request->getUri());
+
         }
 
         return $this->render('front/index.html.twig', [
