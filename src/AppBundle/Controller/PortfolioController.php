@@ -21,7 +21,7 @@ class PortfolioController extends Controller
     {
         $form = $this->createFormBuilder()
             ->add('name',TextType::class, array('label' => 'Nom', 'label_attr' => array('class' => 'text-white'), 'attr' => array('placeholder' => 'Entrez votre Nom')) )
-            ->add('from', EmailType::class, array('label' => 'email', 'label_attr' => array('class' => 'text-white') , 'attr' => array('placeholder' => 'Entrez votre adresse email')))
+            ->add('from', EmailType::class, array('label' => 'Email', 'label_attr' => array('class' => 'text-white') , 'attr' => array('placeholder' => 'Entrez votre adresse email')))
             ->add('message', TextareaType::class, array('label_attr' => array('class' => 'text-white'), 'attr' => array('placeholder' => 'Entrez votre message', 'rows' => '5')))
             ->add('send', SubmitType::class, array('label' => 'Envoyer', 'attr' => array('class' => 'btn-xl btn-light sr-button')))
             ->getForm()
