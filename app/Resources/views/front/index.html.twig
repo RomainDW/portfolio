@@ -3,7 +3,6 @@
 {% block stylesheets %}
     <link href="{{ asset('css/my-style.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/portfolio.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/footer.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block body %}
@@ -11,7 +10,7 @@
     {#Header#}
 
     <header class="masthead text-center text-white d-flex">
-        <div class="container my-auto">
+        <div class="container my-auto sr-container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h1 class="text-uppercase">
@@ -32,7 +31,7 @@
     {#About#}
 
     <section class="bg-primary" id="about">
-        <div class="container">
+        <div class="container sr-container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-heading text-white">A propos</h2>
@@ -54,111 +53,126 @@
     {#Portfolio#}
 
     <section class="bg-dark" id="portfolio">
-        <div class="container">
-            <div class="row">
+        <div class="container sr-container">
+            <div class="row ">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-white">Quelques projets réalisés</h2>
                     <hr class="my-4">
                 </div>
-                <div class="col-lg-6 offset-md-3">
-                    <button class="btn btn-default filter-button" data-filter="all">Tout</button>
-                    <button class="btn btn-default filter-button" data-filter="php">PHP</button>
-                    <button class="btn btn-default filter-button" data-filter="javascript">Javascript</button>
-                    <button class="btn btn-default filter-button" data-filter="symfony">Symfony</button>
-                    <button class="btn btn-default filter-button" data-filter="wordpress">Wordpress</button>
+                <div class="col-lg-6 mx-auto">
+                    <nav>
+                        <ul>
+                            <li class="filter-button active-category first text-center" data-filter="all">Tout</li>
+                            <li class="filter-button text-center" data-filter="php">PHP</li>
+                            <li class="filter-button text-center" data-filter="javascript">Javascript</li>
+                            <li class="filter-button text-center" data-filter="symfony">Symfony</li>
+                            <li class="filter-button last text-center" data-filter="wordpress">Wordpress</li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item filter php">
+            <div class="row justify-content-center">
+
+                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter php symfony">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
                         <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
+                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/01-thumbnail.jpg') }}" alt="" />
+                        <figure>
+                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/01-thumbnail.jpg') }}" alt="" />
+                            <figcaption>
+                                <h3>Projet 1</h3>
+                                <p>PHP - Symfony</p>
+                            </figcaption>
+                        </figure>
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>Projet 1</h4>
-                        <br>
-                        <p class="text-muted">PHP</p>
-                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item filter symfony">
+
+                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter javascript">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
                         <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
+                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/02-thumbnail.jpg') }}" alt="" />
+                        <figure>
+                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/02-thumbnail.jpg') }}" alt="" />
+                            <figcaption>
+                                <h3>Projet 2</h3>
+                                <p>Javascript</p>
+                            </figcaption>
+                        </figure>
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>Projet 2</h4>
-                        <br>
-                        <p class="text-muted">Symfony</p>
-                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item filter javascript">
+
+                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter symfony">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
                         <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
+                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/03-thumbnail.jpg') }}" alt="" />
+                        <figure>
+                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/03-thumbnail.jpg') }}" alt="" />
+                            <figcaption>
+                                <h3>Projet 3</h3>
+                                <p>Symfony</p>
+                            </figcaption>
+                        </figure>
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>Projet 3</h4>
-                        <br>
-                        <p class="text-muted">Javascript</p>
-                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item filter wordpress">
+
+                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter wordpress">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
                         <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
+                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/04-thumbnail.jpg') }}" alt="" />
-
+                        <figure>
+                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/04-thumbnail.jpg') }}" alt="" />
+                            <figcaption>
+                                <h3>Projet 4</h3>
+                                <p>Wordpress</p>
+                            </figcaption>
+                        </figure>
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>Projet 4</h4>
-                        <br>
-                        <p class="text-muted">Wordpress</p>
-                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item filter javascript">
+
+                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter php">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
                         <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
+                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/05-thumbnail.jpg') }}" alt="" />
+                        <figure>
+                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/05-thumbnail.jpg') }}" alt="" />
+                            <figcaption>
+                                <h3>Projet 5</h3>
+                                <p>PHP</p>
+                            </figcaption>
+                        </figure>
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>Projet 5</h4>
-                        <br>
-                        <p class="text-muted">Javascript</p>
-                    </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item filter php">
+
+                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter javascript">
                     <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
                         <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
+                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/06-thumbnail.jpg') }}" alt="" />
+                        <figure>
+                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/06-thumbnail.jpg') }}" alt="" />
+                            <figcaption>
+                                <h3>Projet 6</h3>
+                                <p>Javascript</p>
+                            </figcaption>
+                        </figure>
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>Projet 6</h4>
-                        <br>
-                        <p class="text-muted">PHP</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -182,18 +196,17 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase">Nom du projet</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/01-full.jpg') }}" alt="">
                                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Threads</li>
-                                    <li>Category: Illustration</li>
+                                    <li>Date: Janvier 2017</li>
+                                    <li>Catégorie(s): PHP - Symfony</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
-                                    Close Project</button>
+                                    Fermer le projet</button>
                             </div>
                         </div>
                     </div>
@@ -216,18 +229,17 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase">Nom du projet</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/02-full.jpg') }}" alt="">
                                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Explore</li>
-                                    <li>Category: Graphic Design</li>
+                                    <li>Date: Janvier 2017</li>
+                                    <li>Catégorie(s): Javascript</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
-                                    Close Project</button>
+                                    Fermer le projet</button>
                             </div>
                         </div>
                     </div>
@@ -250,18 +262,17 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase">Nom du Projet</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/03-full.jpg') }}" alt="">
                                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Finish</li>
-                                    <li>Category: Identity</li>
+                                    <li>Date: Janvier 2017</li>
+                                    <li>Catégorie(s): Symfony</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
-                                    Close Project</button>
+                                    Fermer le projet</button>
                             </div>
                         </div>
                     </div>
@@ -284,18 +295,17 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase">Nom du projet</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/04-full.jpg') }}" alt="">
                                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Lines</li>
-                                    <li>Category: Branding</li>
+                                    <li>Date: Janvier 2017</li>
+                                    <li>Catégorie(s): Wordpress</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
-                                    Close Project</button>
+                                    Fermer le projet</button>
                             </div>
                         </div>
                     </div>
@@ -318,18 +328,17 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase">Nom du projet</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/05-full.jpg') }}" alt="">
                                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Southwest</li>
-                                    <li>Category: Website Design</li>
+                                    <li>Date: Janvier 2017</li>
+                                    <li>Catégorie(s): PHP</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
-                                    Close Project</button>
+                                    Fermer le projet</button>
                             </div>
                         </div>
                     </div>
@@ -352,18 +361,17 @@
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase">Nom du projet</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/06-full.jpg') }}" alt="">
                                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Window</li>
-                                    <li>Category: Photography</li>
+                                    <li>Date: Janvier 2017</li>
+                                    <li>Catégorie(s): Javascript</li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
-                                    Close Project</button>
+                                    Fermer le projet</button>
                             </div>
                         </div>
                     </div>
@@ -377,7 +385,7 @@
     {#CV#}
 
     <section class="bg-primary text-white" id="CV">
-        <div class="container text-center">
+        <div class="container text-center sr-container">
             <h2 class="mb-4">Plus d'informations sur mes compétences et mon parcours ?</h2>
             <a class="btn btn-light btn-xl sr-button" href="#">Voir mon cv !</a>
         </div>
@@ -388,7 +396,7 @@
     {#Contact#}
 
     <section id="contact" class="bg-dark">
-        <div class="container">
+        <div class="container sr-container">
             <div class="row">
                 <div class="col-md-8 mx-auto text-center text-white">
                     <h2 class="section-heading">Envie de me contacter ?</h2>
@@ -415,9 +423,9 @@
     <footer id="lab_social_icon_footer" class="bg-dark">
         <div class="container">
             <div class="text-center center-block">
-                <a href="https://www.facebook.com/RomainDevWeb" target="_blank"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                <a href="https://twitter.com/#" target="_blank"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                <a href="https://plus.google.com/#" target="_blank"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                <a href="https://www.facebook.com/RomainDevWeb" target="_blank"><i id="social-fb" class="fab fa-facebook-square fa-3x social"></i></a>
+                <a href="https://twitter.com/#" target="_blank"><i id="social-tw" class="fab fa-twitter-square fa-3x social"></i></a>
+                <a href="https://plus.google.com/#" target="_blank"><i id="social-gp" class="fab fa-google-plus-square fa-3x social"></i></a>
             </div>
         </div>
     </footer>
