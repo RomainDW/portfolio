@@ -1,11 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-    <link href="{{ asset('css/my-style.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/portfolio.css') }}" rel="stylesheet" type="text/css">
+{% block title %}
+<title>Romain Ollier - Portfolio</title>
 {% endblock %}
 
+{% block stylesheets %}
+<link href="{{ asset('css/my-style.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('css/portfolio.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
 {% block body %}
+
+    {#Navbar#}
+
+    {{ include(':inc:navbar.html.twig') }}
+
+
 
     {#Header#}
 
@@ -387,7 +399,7 @@
     <section class="bg-primary text-white" id="CV">
         <div class="container text-center sr-container">
             <h2 class="mb-4">Plus d'informations sur mes compétences et mon parcours ?</h2>
-            <a class="btn btn-light btn-xl sr-button" href="#">Voir mon cv !</a>
+            <a class="btn btn-light btn-xl sr-button" href="{{ path('cv') }}" target="_blank">Voir mon cv !</a>
         </div>
     </section>
 
@@ -436,5 +448,6 @@
 {% block javascripts %}
     <script src="{{ asset('js/portfolio.js') }}"></script>
     <script src="{{ asset('js/filter.js') }}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 {% endblock %}
 
