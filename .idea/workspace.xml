@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44fc7040-e016-44ae-b196-5f86baa327ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/portfolio.iml" afterPath="$PROJECT_DIR$/.idea/portfolio.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/front/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/front/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/PortfolioController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/PortfolioController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,27 +34,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cv.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cv.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/front/cv.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="22" column="51" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+            <state relative-caret-position="159">
+              <caret line="164" column="67" lean-forward="false" selection-start-line="164" selection-start-column="65" selection-end-line="164" selection-end-column="67" />
               <folding>
                 <element signature="e#12#26#0#Twig" expanded="true" />
-                <element signature="e#8535#8540#0#HTML" expanded="true" />
-                <element signature="e#9005#9010#0#HTML" expanded="true" />
-                <element signature="e#9656#9661#0#HTML" expanded="true" />
-                <element signature="e#10312#10317#0#HTML" expanded="true" />
+                <element signature="e#8544#8549#0#HTML" expanded="true" />
+                <element signature="e#9014#9019#0#HTML" expanded="true" />
+                <element signature="e#9665#9670#0#HTML" expanded="true" />
+                <element signature="e#10321#10326#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state relative-caret-position="306">
+              <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -77,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,8 +107,8 @@
       <file leaf-file-name="cv.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/css/cv/cv.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="271" column="23" lean-forward="false" selection-start-line="271" selection-start-column="23" selection-end-line="271" selection-end-column="23" />
+            <state relative-caret-position="263">
+              <caret line="234" column="22" lean-forward="false" selection-start-line="234" selection-start-column="22" selection-end-line="234" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -156,6 +153,7 @@
       <find>voir mon</find>
       <find>.</find>
       <find>langua</find>
+      <find>f5f5</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,8 +186,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/PortfolioController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/front/index.html.twig" />
-        <option value="$PROJECT_DIR$/web/css/cv/cv.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/front/cv.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/cv/cv.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -400,12 +398,12 @@
       <workItem from="1520603594759" duration="11218000" />
       <workItem from="1520838959744" duration="19905000" />
       <workItem from="1520929970287" duration="22465000" />
-      <workItem from="1521020486520" duration="8200000" />
+      <workItem from="1521020486520" duration="11203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82607000" />
+    <option name="totallyTimeSpent" value="85610000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -718,14 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/cv/cv.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="271" column="23" lean-forward="false" selection-start-line="271" selection-start-column="23" selection-end-line="271" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/front/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="821">
@@ -745,30 +735,38 @@
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/front/cv.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="22" column="51" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+        <state relative-caret-position="159">
+          <caret line="164" column="67" lean-forward="false" selection-start-line="164" selection-start-column="65" selection-end-line="164" selection-end-column="67" />
           <folding>
             <element signature="e#12#26#0#Twig" expanded="true" />
-            <element signature="e#8535#8540#0#HTML" expanded="true" />
-            <element signature="e#9005#9010#0#HTML" expanded="true" />
-            <element signature="e#9656#9661#0#HTML" expanded="true" />
-            <element signature="e#10312#10317#0#HTML" expanded="true" />
+            <element signature="e#8544#8549#0#HTML" expanded="true" />
+            <element signature="e#9014#9019#0#HTML" expanded="true" />
+            <element signature="e#9665#9670#0#HTML" expanded="true" />
+            <element signature="e#10321#10326#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/cv/cv.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="234" column="22" lean-forward="false" selection-start-line="234" selection-start-column="22" selection-end-line="234" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
