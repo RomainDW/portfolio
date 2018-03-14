@@ -55,4 +55,11 @@ class PortfolioController extends Controller
             'contact_form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/cv", name="cv")
+     */
+    public function cvAction () {
+        return $this->render('front/cv.html.twig');
+    }
 }
