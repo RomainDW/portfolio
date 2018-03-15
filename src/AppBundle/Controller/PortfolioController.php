@@ -3,12 +3,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class PortfolioController extends Controller
@@ -19,13 +17,8 @@ class PortfolioController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $form = $this->createFormBuilder()
-            ->add('name',TextType::class, array('label' => 'Nom', 'label_attr' => array('class' => 'text-white'), 'attr' => array('placeholder' => 'Entrez votre Nom')) )
-            ->add('from', EmailType::class, array('label' => 'Email', 'label_attr' => array('class' => 'text-white') , 'attr' => array('placeholder' => 'Entrez votre adresse email')))
-            ->add('message', TextareaType::class, array('label_attr' => array('class' => 'text-white'), 'attr' => array('placeholder' => 'Entrez votre message', 'rows' => '5')))
-            ->add('send', SubmitType::class, array('label' => 'Envoyer', 'attr' => array('class' => 'btn-xl btn-light sr-button')))
-            ->getForm()
-        ;
+        $form = $this->createForm(ContactType::class);
+        $form ->add('send', SubmitType::class, array('label' => 'Envoyer', 'attr' => array('class' => 'btn-xl btn-light sr-button')));
 
         $form->handleRequest($request);
 
@@ -47,7 +40,7 @@ class PortfolioController extends Controller
 
             $this->get('mailer')->send($message);
 
-            return $this->redirect($request->getUri());
+            return $this->redirect($request->getUri(). '#contact');
 
         }
 
