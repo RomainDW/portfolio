@@ -476,3 +476,12 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+.form-control {
+  border: 1px solid #757575;
+}
+
+
+.card-btn {
+  margin-bottom: 15px;
+}
