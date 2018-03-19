@@ -7,25 +7,25 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="{{ path('Dashboard') }}">
+                <a class="nav-link {% if app.request.attributes.get('_route') == 'Dashboard' %}active-link{% endif %}" href="{{ path('Dashboard') }}">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="A propos">
-                <a class="nav-link" href="{{ path('Edit about', {'id' : 1}) }}">
+                <a class="nav-link {% if app.request.attributes.get('_route') == 'Edit about' %}active-link{% endif %}" href="{{ path('Edit about', {'id' : 1}) }}">
                     <i class="fa fa-edit"></i>
                     <span class="nav-link-text">A propos</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ajouter un projet">
-                <a class="nav-link" href="{{ path('Add project') }}">
+                <a class="nav-link {% if app.request.attributes.get('_route') == 'Add project' %}active-link{% endif %}" href="{{ path('Add project') }}">
                     <i class="fa fa-plus"></i>
                     <span class="nav-link-text">Ajouter un projet</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Modifier le CV">
-                <a class="nav-link" href="#">
+                <a class="nav-link " href="#">
                     <i class="fa fa-edit"></i>
                     <span class="nav-link-text">Modifier le CV</span>
                 </a>

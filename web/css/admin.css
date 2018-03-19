@@ -489,3 +489,7 @@ footer.sticky-footer {
 .table-bordered thead th {
   cursor: pointer;
 }
+
+.active-link{
+    color: #ffffff !important;
+}
