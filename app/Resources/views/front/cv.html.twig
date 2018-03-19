@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-    <title>Romain Ollier - CV</title>
-{% endblock %}
-
 {% block stylesheets %}
     <link href="{{ asset('css/cv/cv.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
@@ -23,7 +19,7 @@
             <ul class="list-unstyled contact-list">
                 <li class="email"><i class="fa fa-envelope"></i><a href="mailto: contact@romain-ollier.com">contact@romain-ollier.com</a></li>
                 <li class="phone"><i class="fa fa-phone"></i><a href="tel:06 41 57 49 10">06 41 57 49 10</a></li>
-                <li class="website"><i class="fa fa-globe"></i><a href="{{ path('homepage') }}" target="_blank">www.romain-ollier.com</a></li>
+                <li class="website"><i class="fa fa-globe"></i><a href="{{ path('Portfolio') }}" target="_blank">www.romain-ollier.com</a></li>
                 <li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/romain-ollier-26b13611b/" target="_blank">/romain-ollier</a></li>
                 <li class="github"><i class="fa fa-github"></i><a href="https://github.com/RomainDW" target="_blank">github.com/RomainDW</a></li>
                 <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/#" target="_blank">@twittername</a></li>
