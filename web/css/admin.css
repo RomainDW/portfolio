@@ -485,3 +485,7 @@ footer.sticky-footer {
 .card-btn {
   margin-bottom: 15px;
 }
+
+.table-bordered thead th {
+  cursor: pointer;
+}

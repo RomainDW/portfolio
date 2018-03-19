@@ -27,21 +27,15 @@
                         <thead>
                         <tr>
                             <th>Nom du projet</th>
+                            <th>Date de Création</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Ajouter un projet</th>
-                            <th>
-                                <a class="btn btn-success" href="{{ path('Add project') }}"><i class="fa fa-plus"></i> Ajouter</a>
-                            </th>
-                        </tr>
-                        </tfoot>
                         <tbody>
                         {% for project in projects  %}
                         <tr>
                             <td>{{ project.name }}</td>
+                            <td>{{ project.createdDate | date('d-m-Y') }}</td>
                             <td>
                                 <a href="{{ path('Edit project', {id : project.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
                                 <a href="{{ path('Delete project', {id : project.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
@@ -51,6 +45,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="card-btn col-md-3">
+                <a class="btn btn-success" href="{{ path('Add project') }}"><i class="fa fa-plus"></i> Ajouter</a>
             </div>
         </div>
 
