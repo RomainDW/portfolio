@@ -1,0 +1,24 @@
+{% extends 'layout_admin.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ path('Dashboard') }}">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Modifier un projet</li>
+        </ol>
+        <div class="col-md-6">
+
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice alert alert-success" role="alert">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+
+            {{ form(project_form) }}
+
+        </div>
+    </div>
+{% endblock %}
