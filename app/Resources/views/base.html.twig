@@ -7,7 +7,9 @@
         <meta name="description" content="Bienvenue sur le portfolio de Romain Ollier">
         <meta name="author" content="Romain Ollier">
 
-        {% block title %}{% endblock %}
+        {% block title %}
+            <title>Romain Ollier - {{ app.request.attributes.get('_route') }}</title>
+        {% endblock %}
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -25,7 +27,8 @@
 
 
 
-    <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <body class="fixed-nav sticky-footer" id="page-top">
+        {% block nav %}{% endblock %}
         {% block body %}{% endblock %}
 
         <!-- Bootstrap core JavaScript -->
