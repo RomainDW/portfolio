@@ -18,3 +18,4 @@
 .idea/*
 .idea/workspace.xml
 /app/config/parameters.yml
+/node_modules/*
