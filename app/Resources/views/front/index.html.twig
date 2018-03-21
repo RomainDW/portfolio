@@ -2,8 +2,7 @@
 
 
 {% block stylesheets %}
-<link href="{{ asset('css/my-style.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/portfolio.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('build/css/app.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block body %}
@@ -16,7 +15,8 @@
 
     <!-- ===== Header ===== -->
 
-    <header class="masthead text-center text-white d-flex">
+    <header class="masthead text-center text-white d-flex" style="background: url('{{ asset('build/images/header.fb7e411a.jpg') }}');
+;">
         <div class="container my-auto sr-container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
@@ -156,9 +156,9 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/ajax.js') }}"></script>
-    <script src="{{ asset('js/portfolio.js') }}"></script>
-    <script src="{{ asset('js/filter.js') }}"></script>
+    <script src="{{ asset('js/portfolio/ajax.js') }}"></script>
+    <script src="{{ asset('js/portfolio/portfolio.js') }}"></script>
+    <script src="{{ asset('js/portfolio/filter.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
