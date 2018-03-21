@@ -29,7 +29,10 @@
 
     <body class="fixed-nav sticky-footer" id="page-top">
         {% block nav %}{% endblock %}
+
         {% block body %}{% endblock %}
+
+        <!-- ===== Scripts ===== -->
 
         <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
@@ -38,9 +41,6 @@
         <!-- Plugin JavaScript -->
         <script src="{{ asset('js/vendor/jquery.easing.min.js') }}"></script>
         <script src="{{ asset('js/vendor/scrollreveal.min.js') }}"></script>
-
-        <!-- FontAwesome -->
-
 
         <!-- Custom scripts -->
         {% block javascripts %}{% endblock %}
