@@ -8,13 +8,13 @@
 
 {% block body %}
 
-    {#Navbar#}
+    <!-- ===== NavBar ===== -->
 
     {{ include(':inc:navbar.html.twig') }}
 
 
 
-    {#Header#}
+    <!-- ===== Header ===== -->
 
     <header class="masthead text-center text-white d-flex">
         <div class="container my-auto sr-container">
@@ -35,7 +35,7 @@
 
 
 
-    {#About#}
+    <!-- ===== About ===== -->
 
     <section class="bg-primary" id="about">
         <div class="container sr-container">
@@ -56,7 +56,7 @@
 
 
 
-    {#Portfolio#}
+    <!-- ===== Portfolio ===== -->
 
     <section class="bg-dark" id="portfolio">
         <div class="container sr-container">
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-lg-6 mx-auto">
                     <nav>
-                        <ul>
+                        <ul class="portfolio-menu">
                             <li class="filter-button active-category first text-center" data-filter="all">Tout</li>
                             <li class="filter-button text-center" data-filter="php">PHP</li>
                             <li class="filter-button text-center" data-filter="javascript">Javascript</li>
@@ -77,72 +77,34 @@
                     </nav>
                 </div>
             </div>
-            <div class="row justify-content-center">
-
-                {% for project in projects %}
-                <div class="projets_album col-md-6 col-sm-12 portfolio-item filter {{ project.categories | lower }}">
-                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ project.id }}">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <figure>
-                            <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/' ~ project.image) }}" alt="{{ project.name }}" />
-                            <figcaption>
-                                <h3>{{ project.name }}</h3>
-                                <p>{{ project.categories }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
+            <div style="position:relative; min-height: 331px;">
+                <div id="loading" style="z-index: 10; display: none;">
+                    <div class="sk-folding-cube">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                    </div>
+                    <h2 class="loading-text">Chargement...</h2>
                 </div>
-                {% endfor %}
+                <div class="row justify-content-center" id="portfolio-container" style="position:relative;">
+                    {#Project gallery with Ajax#}
+                </div>
             </div>
+
         </div>
+
     </section>
 
+    <!-- ===== Portfolio Modals ===== -->
 
-
-    {#Portfolio Modals#}
-
-    <!-- Modal -->
-    {% for project in projects %}
-    <div class="portfolio-modal modal fade" id="portfolioModal{{ project.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl"></div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 mx-auto">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here -->
-                                <h2 class="text-uppercase">{{ project.name }}</h2>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/full/01-full.jpg') }}" alt="">
-                                <p>{{ project.resume }}</p>
-                                <ul class="list-inline">
-                                    <li>Date: {{ project.createdDate | date('d/m/Y') }}</li>
-                                    <li>Catégorie(s): {{ project.categories }}</li>
-                                    <li><a href="{{ project.link }}" target="_blank">Lien vers le site</a></li>
-                                </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                    <i class="fa fa-times"></i>
-                                    Fermer le projet</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div id="modals">
+        {#Portfolio Modals with Ajax#}
     </div>
-    {% endfor %}
 
 
-    {#CV#}
+
+    <!-- ===== CV ===== -->
 
     <section class="bg-primary text-white" id="CV">
         <div class="container text-center sr-container">
@@ -153,7 +115,7 @@
 
 
 
-    {#Contact#}
+    <!-- ===== Contact ===== -->
 
     <section id="contact" class="bg-dark">
         <div class="container sr-container">
@@ -179,7 +141,8 @@
 
 
 
-    {#Footer#}
+    <!-- ===== Footer ===== -->
+
     <footer id="lab_social_icon_footer" class="bg-dark">
         <div class="container">
             <div class="text-center center-block">
@@ -190,12 +153,14 @@
         </div>
     </footer>
 
-
 {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('js/ajax.js') }}"></script>
     <script src="{{ asset('js/portfolio.js') }}"></script>
     <script src="{{ asset('js/filter.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 {% endblock %}
 
