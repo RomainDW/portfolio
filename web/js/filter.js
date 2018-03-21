@@ -1,27 +1,47 @@
 $(document).ready(function(){
 
+    var time = 2300;
+    var value = 'all';
+    var url = Routing.generate('filter', { slug: value });
+
+    setTimeout(
+        function () {
+            $('#loading').show();
+        }, 300
+    );
+
+    setTimeout(
+        function () {
+            $('#loading').hide();
+        }, time
+    );
+
+    ajaxCallPortfolio(url, time);
+
     $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
+        value = $(this).attr('data-filter');
+        url = Routing.generate('filter', { slug: value });
 
-        if(value == "all")
-        {
-            //$('.filter').removeClass('hidden');
-            $('.filter').show('1000');
-        }
-        else
-        {
-//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
-            $(".filter").not('.'+value).hide();
-            $('.filter').filter('.'+value).fadeIn('3000');
+        setTimeout(
+            function () {
+                $('#loading').show();
+            }, 300
+        );
 
-        }
+        setTimeout(
+          function () {
+              $('#loading').hide();
+          }, time
+        );
+
+
         if ($(".filter-button").removeClass("active-category")) {
             $(this).removeClass("active-category");
         }
         $(this).addClass("active-category");
+
+        ajaxCallPortfolio(url, time);
     });
 
-
-
 });
+
