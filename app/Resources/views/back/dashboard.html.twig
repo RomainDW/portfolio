@@ -17,62 +17,6 @@
             </div>
         {% endfor %}
 
-        <!-- Example DataTables Card-->
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-table"></i> Tableau des projets</div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th>Nom du projet</th>
-                            <th>Date de Création</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for project in projects  %}
-                        <tr>
-                            <td>{{ project.name }}</td>
-                            <td>{{ project.createdDate | date('d-m-Y') }}</td>
-                            <td>
-                                <a href="{{ path('Edit project', {id : project.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
-                                <a href="{{ path('Delete project', {id : project.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-btn col-md-3">
-                <a class="btn btn-success" href="{{ path('Add project') }}"><i class="fa fa-plus"></i> Ajouter</a>
-            </div>
-        </div>
-
-        {%  for about in abouts %}
-        <div class="card mb-3">
-            <div class="card-header">
-                <i class="fa fa-pencil"></i>
-                 A propos
-            </div>
-            <div class="card-body">
-                {{ about.resume }}
-            </div>
-            <div class="card-btn col-md-3">
-                <a href="{{ path('Edit about', {'id' : 1}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
-            </div>
-            <div class="card-footer small text-muted">Mis à jour le {{ about.updatedDate | date('d/m/Y') }}</div>
-        </div>
-        {% endfor %}
     </div>
     <!-- /.container-fluid-->
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('js/admin/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('js/admin/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('js/admin/sb-admin-datatables.js') }}"></script>
-    {{ parent() }}
 {% endblock %}
