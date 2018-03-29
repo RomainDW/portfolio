@@ -1,0 +1,223 @@
+{% extends 'layout_admin.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ path('Dashboard') }}">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">CV</li>
+            <li class="breadcrumb-item active">Editer le CV</li>
+        </ol>
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Formation</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom de la formation</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for formation in formations  %}
+                                    <tr>
+                                        <td>{{ formation.name }}</td>
+                                        <td>
+                                            <a href="{{ path('Edit CV formation', {id : formation.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <a href="{{ path('Delete category', {id : formation.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <a class="btn btn-success" href="{{ path('Add CV Formation') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Langues</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom de la langue</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for language in languages  %}
+                                    <tr>
+                                        <td>{{ language.name }}</td>
+                                        <td>
+                                            <a href="{{ path('Edit CV Langue', {id : language.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <a href="{{ path('Delete language', {id : language.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <a class="btn btn-success" href="{{ path('Add CV Langue') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Hobbies</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom du Hobbie</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for hobbie in hobbies  %}
+                                    <tr>
+                                        <td>{{ hobbie.name }}</td>
+                                        <td>
+                                            <a href="{{ path('Edit CV Hobbie', {id : hobbie.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <a href="{{ path('Delete hobbie', {id : hobbie.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <a class="btn btn-success" href="{{ path('Add CV Hobbie') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                    </div>
+                </div>
+
+            </div><!-- end -->
+
+            <div class="col-md-6">
+
+                {% for message in app.flashes('notice') %}
+                    <div class="flash-notice alert alert-success" role="alert">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
+
+                {{ form(cv_form) }}
+
+            </div>
+            <div class="col-md-12">
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Expériences</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom de l'expérience</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for experience in experiences  %}
+                                    <tr>
+                                        <td>{{ experience.name }}</td>
+                                        <td>
+                                            <a href="{{ path('Edit CV experience', {id : experience.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <a href="{{ path('Delete experience', {id : experience.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <a class="btn btn-success" href="{{ path('Add CV Expérience') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Compétences</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom de la compétence</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for skill in skills  %}
+                                    <tr>
+                                        <td>{{ skill.name }}</td>
+                                        <td>
+                                            <a href="{{ path('Edit CV compétence', {id : skill.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <a href="{{ path('Delete skill', {id : skill.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <a class="btn btn-success" href="{{ path('Add CV Compétence') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Projets</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom du projet</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for project in projects  %}
+                                    <tr>
+                                        <td>{{ project.name }}</td>
+                                        <td>
+                                            <a href="{{ path('Edit CV projet', {id : project.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <a href="{{ path('Delete CV project', {id : project.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <a class="btn btn-success" href="{{ path('Add CV Projet') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

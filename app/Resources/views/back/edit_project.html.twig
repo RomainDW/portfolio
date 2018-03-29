@@ -7,18 +7,25 @@
             <li class="breadcrumb-item">
                 <a href="{{ path('Dashboard') }}">Dashboard</a>
             </li>
+            <li class="breadcrumb-item active">Projet</li>
+            <li class="breadcrumb-item">
+                <a href="{{ path('Edit projects') }}">Modifier des projets</a>
+            </li>
             <li class="breadcrumb-item active">Modifier un projet</li>
         </ol>
-        <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
 
-            {% for message in app.flashes('notice') %}
-                <div class="flash-notice alert alert-success" role="alert">
-                    <strong>{{ message }}</strong>
-                </div>
-            {% endfor %}
+                {% for message in app.flashes('notice') %}
+                    <div class="flash-notice alert alert-success" role="alert">
+                        <strong>{{ message }}</strong>
+                    </div>
+                {% endfor %}
 
-            {{ form(project_form) }}
+                {{ form(project_form) }}
 
+            </div>
         </div>
+
     </div>
 {% endblock %}
