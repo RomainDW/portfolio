@@ -2,8 +2,10 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,21 +25,25 @@ class ProjectType extends AbstractType
                 'label' => 'Nom du projet',
                 'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])]
             ])
-            ->add('categories', TextType::class, [
-                'label' => 'Catégories',
-                'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])]
+            ->add('category', EntityType::class, [
+                'label' => 'Catégorie(s)',
+                'class' => 'AppBundle\Entity\Category',
+                'choice_label' => 'name',
+                'expanded' => true,
+                'multiple' => true
             ])
             ->add('createdDate', DateTimeType::class, [
                 'label' => 'Date de création',
                 'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])]
             ])
-            ->add('image', TextType::class, [
+            ->add('file', FileType::class, [
                 'label' => 'Image',
-                'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])]
+                'required' => false
             ])
             ->add('resume', TextareaType::class, [
                 'label' => 'Description',
-                'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])]
+                'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])],
+                'attr' => ['rows' => 5]
             ])
             ->add('link', TextType::class, [
                 'label' => 'Lien du site',
