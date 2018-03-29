@@ -17,7 +17,7 @@ class AboutType extends AbstractType
     {
         $builder
             ->add('resume', TextareaType::class, [
-            'attr' => ['rows' => '10'],
+            'attr' => ['rows' => '10', 'class' => 'tinymce'],
             'label' => 'Description'
             ])
             ->add('send', SubmitType::class, [
