@@ -96,4 +96,3 @@ class About
         return $this->resume;
     }
 }
-
