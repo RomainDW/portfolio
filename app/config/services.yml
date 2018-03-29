@@ -34,3 +34,20 @@ services:
         class: AppBundle\Service\ContactMailer
         arguments: ['@mailer']
         public: true
+
+
+    upload.annotation_reader:
+        class: AppBundle\Annotation\UploadAnnotationReader
+        arguments: ["@annotations.reader"]
+        public: true
+
+    upload.handler:
+        class: AppBundle\Handler\UploadHandler
+        public: true
+
+    upload.subscriber:
+        class: AppBundle\Listener\UploadSubscriber
+        public: true
+        arguments: ["@upload.annotation_reader", "@upload.handler"]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
