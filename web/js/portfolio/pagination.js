@@ -22,4 +22,3 @@ $(document).ready(function(){
 function moove () {
     $('#modals').html(($('#toMoove').html()));
 }
-
