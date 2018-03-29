@@ -1,5 +1,5 @@
 {% for project in projects %}
-    <div class="projets_album col-md-6 col-sm-12 portfolio-item filter {{ project.categories | lower }}">
+    <div class="projets_album col-md-6 col-sm-12 portfolio-item filter {% for category in project.category %} {{ category.name | lower}} {% endfor %}">
         <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ project.id }}">
             <div class="portfolio-hover">
                 <div class="portfolio-hover-content d-flex align-items-center justify-content-center">
@@ -7,10 +7,18 @@
                 </div>
             </div>
             <figure>
-                <img class="img-fluid" src="{{ asset('img/portfolio/thumbnail/' ~ project.image) }}" alt="{{ project.name }}" />
+                <img class="img-fluid" src="{{ asset(project.file.pathName) }}" alt="{{ project.name }}" />
                 <figcaption>
                     <h3>{{ project.name }}</h3>
-                    <p>{{ project.categories }}</p>
+                    <p>
+                    {% for category in project.category %}
+                    {% if category.name == project.category|last.name%}
+                    {{ category.name }}
+                    {% else %}
+                    {{ category.name }} |
+                    {% endif %}
+                    {% endfor %}
+                    </p>
                 </figcaption>
             </figure>
         </a>
@@ -40,11 +48,20 @@
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
                                 <h2 class="text-uppercase">{{ project.name }}</h2>
-                                <img class="img-fluid d-block mx-auto" src="{{ asset('img/portfolio/thumbnail/' ~ project.image) }}" alt="{{ project.name }}">
-                                <p>{{ project.resume }}</p>
+                                <img class="img-fluid d-block mx-auto" src="{{ asset(project.file.pathName) }}" alt="{{ project.name }}">
+                                {{ project.resume|raw }}
                                 <ul class="list-inline">
                                     <li>Date: {{ project.createdDate | date('d/m/Y') }}</li>
-                                    <li>Catégorie(s): {{ project.categories }}</li>
+                                    <li>
+                                        Catégorie(s):
+                                        {% for category in project.category %}
+                                            {% if category.name == project.category|last.name%}
+                                                {{ category.name }}
+                                            {% else %}
+                                                {{ category.name }} |
+                                            {% endif %}
+                                        {% endfor %}
+                                    </li>
                                     <li><a href="{{ project.link }}" target="_blank">Lien vers le site</a></li>
                                 </ul>
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
