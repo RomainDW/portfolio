@@ -43,11 +43,11 @@
                 <div class="col-lg-8 mx-auto text-center">
                     <h2 class="section-heading text-white">A propos</h2>
                     <hr class="light my-4">
-                    <p class="text-faded mb-4">
+                    <div class="text-faded mb-4">
                         {% for about in abouts %}
-                        {{ about.resume }}
+                        {{ about.resume|raw }}
                         {% endfor %}
-                    </p>
+                    </div>
                     <a class="btn btn-light btn-xl js-scroll-trigger" href="#portfolio">Voir les projets</a>
                 </div>
             </div>
@@ -69,10 +69,9 @@
                     <nav>
                         <ul class="portfolio-menu">
                             <li class="filter-button active-category first text-center" data-filter="all">Tout</li>
-                            <li class="filter-button text-center" data-filter="php">PHP</li>
-                            <li class="filter-button text-center" data-filter="javascript">Javascript</li>
-                            <li class="filter-button text-center" data-filter="symfony">Symfony</li>
-                            <li class="filter-button last text-center" data-filter="wordpress">Wordpress</li>
+                            {% for category in categories %}
+                            <li class="filter-button text-center" data-filter="{{ category.id }}">{{ category.name }}</li>
+                            {% endfor %}
                         </ul>
                     </nav>
                 </div>
@@ -87,7 +86,7 @@
                     </div>
                     <h2 class="loading-text">Chargement...</h2>
                 </div>
-                <div class="row justify-content-center" id="portfolio-container" style="position:relative;">
+                <div class="row justify-content-left" id="portfolio-container" style="position:relative;">
                     {#Project gallery with Ajax#}
                 </div>
             </div>
@@ -156,7 +155,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/portfolio/ajax.js') }}"></script>
     <script src="{{ asset('js/portfolio/portfolio.js') }}"></script>
     <script src="{{ asset('js/portfolio/filter.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
