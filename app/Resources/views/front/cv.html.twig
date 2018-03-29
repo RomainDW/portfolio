@@ -10,49 +10,47 @@
 <div class="wrapper">
     <div class="sidebar-wrapper">
         <div class="profile-container">
-            <img class="profile" src="{{ asset('build/images/profile.18454449.png') }}" alt="" />
-            <h1 class="name">Romain Ollier</h1>
-            <h3 class="tagline">Développeur Web</h3>
+            <img class="profile" src="{{ asset('build/images/' ~  data.image) }}" alt="Photo de profile de {{ data.name }}" />
+            <h1 class="name">{{ data.name }}</h1>
+            <h3 class="tagline">{{ data.job }}</h3>
         </div><!--//profile-container-->
 
         <div class="contact-container container-block">
             <ul class="list-unstyled contact-list">
-                <li class="email"><i class="fa fa-envelope"></i><a href="mailto: contact@romain-ollier.com">contact@romain-ollier.com</a></li>
-                <li class="phone"><i class="fa fa-phone"></i><a href="tel:06 41 57 49 10">06 41 57 49 10</a></li>
-                <li class="website"><i class="fa fa-globe"></i><a href="{{ path('Portfolio') }}" target="_blank">www.romain-ollier.com</a></li>
-                <li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/romain-ollier-26b13611b/" target="_blank">/romain-ollier</a></li>
-                <li class="github"><i class="fa fa-github"></i><a href="https://github.com/RomainDW" target="_blank">github.com/RomainDW</a></li>
-                <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/#" target="_blank">@twittername</a></li>
+                <li class="email"><i class="fa fa-envelope"></i><a href="mailto: {{ data.mail }}">{{ data.mail }}</a></li>
+                <li class="phone"><i class="fa fa-phone"></i><a href="tel:{{ data.phone }}">{{ data.phone }}</a></li>
+                <li class="website"><i class="fa fa-globe"></i><a href="{{ data.websiteLink }}" target="_blank">{{ data.website }}</a></li>
+                <li class="linkedin"><i class="fa fa-linkedin"></i><a href="{{ data.linkedinLink }}" target="_blank">{{ data.linkedin }}</a></li>
+                <li class="github"><i class="fa fa-github"></i><a href="{{ data.githubLink }}" target="_blank">{{ data.github }}</a></li>
+                <li class="twitter"><i class="fa fa-twitter"></i><a href="{{ data.twitterLink }}" target="_blank">{{ data.twitter }}</a></li>
             </ul>
         </div><!--//contact-container-->
         <div class="education-container container-block">
             <h2 class="container-block-title">Formations</h2>
+            {% for formation in dataFormations %}
             <div class="item">
-                <h4 class="degree">Bac +2 - Développeur Web</h4>
-                <h5 class="meta">OpenClassrooms</h5>
-                <div class="time">2017-2018</div>
+                <h4 class="degree">{{ formation.niv }} - {{ formation.name }}</h4>
+                <h5 class="meta">{{ formation.school }}</h5>
+                <div class="time">{{ formation.date }}</div>
             </div><!--//item-->
-            <div class="item">
-                <h4 class="degree">Bac - Infographiste Web/Print</h4>
-                <h5 class="meta">IEFM 3D</h5>
-                <div class="time">2016-2017</div>
-            </div><!--//item-->
+            {% endfor %}
         </div><!--//education-container-->
 
         <div class="languages-container container-block">
             <h2 class="container-block-title">Langues</h2>
             <ul class="list-unstyled interests-list">
-                <li>Français <span class="lang-desc">(Native)</span></li>
-                <li>Anglais <span class="lang-desc">(Technique)</span></li>
+                {% for language in dataLanguages %}
+                <li>{{ language.name }} <span class="lang-desc">({{ language.niv }})</span></li>
+                {% endfor %}
             </ul>
-        </div><!--//interests-->
+        </div><!--//Languages-->
 
         <div class="interests-container container-block">
             <h2 class="container-block-title">Hobbies</h2>
             <ul class="list-unstyled interests-list">
-                <li>Cinéma</li>
-                <li>Musique</li>
-                <li>Jeux vidéos</li>
+                {% for hobbie in dataHobbies %}
+                <li>{{ hobbie.name }}</li>
+                {% endfor %}
             </ul>
         </div><!--//interests-->
 
@@ -63,53 +61,27 @@
         <section class="section summary-section">
             <h2 class="section-title"><i class="fa fa-user"></i>Introduction</h2>
             <div class="summary">
-                <p>lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vous pouvez <a href="https://romain-ollier.com" target="_blank">Visiter mon portfolio ici</a>. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.</p>
+                {{ data.intro|raw }}
             </div><!--//summary-->
         </section><!--//section-->
 
         <section class="section experiences-section">
             <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
 
+            {% for exp in dataExperiences %}
             <div class="item">
                 <div class="meta">
                     <div class="upper-row">
-                        <h3 class="job-title">Stage Infographiste</h3>
-                        <div class="time">2017</div>
+                        <h3 class="job-title">{{ exp.name }}</h3>
+                        <div class="time">{{ exp.date }}</div>
                     </div><!--//upper-row-->
-                    <div class="company">Flash Enseignes</div>
+                    <div class="company">{{ exp.company }}</div>
                 </div><!--//meta-->
                 <div class="details">
-                    <p>Description du role lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo.</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+                    {{ exp.resume|raw }}
                 </div><!--//details-->
             </div><!--//item-->
-
-            <div class="item">
-                <div class="meta">
-                    <div class="upper-row">
-                        <h3 class="job-title">Stage Infographiste</h3>
-                        <div class="time">2016</div>
-                    </div><!--//upper-row-->
-                    <div class="company">Flash Enseignes</div>
-                </div><!--//meta-->
-                <div class="details">
-                    <p>Description du role lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-
-                </div><!--//details-->
-            </div><!--//item-->
-
-            <div class="item">
-                <div class="meta">
-                    <div class="upper-row">
-                        <h3 class="job-title">Stage Gestion des réseaux</h3>
-                        <div class="time">2013</div>
-                    </div><!--//upper-row-->
-                    <div class="company">Communauté de Commune du Clermontais</div>
-                </div><!--//meta-->
-                <div class="details">
-                    <p>Description du role lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
-                </div><!--//details-->
-            </div><!--//item-->
+            {% endfor %}
 
         </section><!--//section-->
 
@@ -118,75 +90,26 @@
             <div class="intro">
                 <p>Liste de mes projets. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
             </div><!--//intro-->
-            <div class="item">
-                <span class="project-title"><a href="https://www.romain-ollier.com/projet4" target="_blank">Blog pour un écrivain</a></span> -
-                <span class="project-tagline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span>
-            </div><!--//item-->
-            <div class="item">
-                <span class="project-title"><a href="https://www.romain-ollier.com/projet3" target="_blank">Carte interactive de location de vélos</a></span> -
-                <span class="project-tagline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span>
-            </div><!--//item-->
-            <div class="item">
-                <span class="project-title"><a href="https://www.romain-ollier.com/wp-projet-2" target="_blank">Créer un thème WordPress pour une Mairie</a></span> -
-                <span class="project-tagline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span>
-            </div><!--//item-->
-            <div class="item">
-                <span class="project-title"><a href="https://www.romain-ollier.com/projet1" target="_blank">Intégrer la maquette du site d'une agence web</a></span> -
-                <span class="project-tagline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span>
-            </div><!--//item-->
+            {% for project in dataProjects %}
+                <div class="item">
+                    <span class="project-title"><a href="{{ project.link }}" target="_blank">{{ project.name }}</a></span>
+                    <span class="project-tagline">{{ project.resume|raw }}</span>
+                </div><!--//item-->
+            {% endfor %}
         </section><!--//section-->
 
         <section class="skills-section section">
             <h2 class="section-title"><i class="fa fa-rocket"></i>Compétences &amp; Maîtrises</h2>
             <div class="skillset">
-                <div class="item">
-                    <h3 class="level-title">PHP & MySQL</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="85%">
-                        </div>
-                    </div><!--//level-bar-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <h3 class="level-title">Javascript &amp; jQuery</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="75%">
-                        </div>
-                    </div><!--//level-bar-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <h3 class="level-title">Symfony</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="70%">
-                        </div>
-                    </div><!--//level-bar-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <h3 class="level-title">HTML5 &amp; CSS</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="95%">
-                        </div>
-                    </div><!--//level-bar-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <h3 class="level-title">Wordpress</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="80%">
-                        </div>
-                    </div><!--//level-bar-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <h3 class="level-title">Illustrator &amp; Photoshop</h3>
-                    <div class="level-bar">
-                        <div class="level-bar-inner" data-level="85%">
-                        </div>
-                    </div><!--//level-bar-->
-                </div><!--//item-->
-
+                {% for skill in dataSkills %}
+                    <div class="item">
+                        <h3 class="level-title">{{ skill.name }}</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" data-level="{{ skill.niv }}%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+                {% endfor %}
             </div>
         </section><!--//skills-section-->
 
