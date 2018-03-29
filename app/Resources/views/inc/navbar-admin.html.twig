@@ -18,17 +18,71 @@
                     <span class="nav-link-text">A propos</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ajouter un projet">
-                <a class="nav-link {% if app.request.attributes.get('_route') == 'Add project' %}active-link{% endif %}" href="{{ path('Add project') }}">
-                    <i class="fa fa-plus"></i>
-                    <span class="nav-link-text">Ajouter un projet</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Modifier le CV">
-                <a class="nav-link " href="#">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projets">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
                     <i class="fa fa-edit"></i>
-                    <span class="nav-link-text">Modifier le CV</span>
+                    <span class="nav-link-text">Projets</span>
                 </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents2">
+                    <li>
+                        <a class="nav-link {% if app.request.attributes.get('_route') == 'Add project' %}active-link{% endif %}" href="{{ path('Add project') }}">
+                            <i class="fa fa-plus"></i>
+                            <span class="nav-link-text">Ajouter un projet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link {% if app.request.attributes.get('_route') == 'Add category' %}active-link{% endif %}" href="{{ path('Add category') }}">
+                            <i class="fa fa-plus"></i>
+                            <span class="nav-link-text">Ajouter une catégorie</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Edit projects') }}">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-link-text">Modifier des projets</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('Edit categories') }}">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-link-text">Modifier des categories</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="CV">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <i class="fa fa-edit"></i>
+                    <span class="nav-link-text">CV</span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <li>
+                        <a href="{{ path('Edit CV general', {id:1}) }}"><i class="fa fa-edit"></i> Editer le CV</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2"> <i class="fa fa-plus"></i> Ajouter des éléments</a>
+                        <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                            <li>
+                                <a href="{{ path('Add CV Formation') }}"><i class="fa fa-plus"></i> Formation</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('Add CV Langue') }}"><i class="fa fa-plus"></i> Langue</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('Add CV Hobbie') }}"><i class="fa fa-plus"></i> Hobbie</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('Add CV Expérience') }}"><i class="fa fa-plus"></i> Expérience</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('Add CV Projet') }}"><i class="fa fa-plus"></i> Projet</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('Add CV Compétence') }}"><i class="fa fa-plus"></i> Compétence</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
