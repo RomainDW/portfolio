@@ -53,6 +53,13 @@ class Project
     /**
      * @var string
      *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="filename", type="string", length=255, nullable=true)
      */
     private $filename;
@@ -170,6 +177,30 @@ class Project
     public function getEditDate()
     {
         return $this->editDate;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Project
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
