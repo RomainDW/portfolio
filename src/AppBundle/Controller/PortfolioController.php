@@ -4,7 +4,15 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\About;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Cv;
+use AppBundle\Entity\CvProject;
+use AppBundle\Entity\Experience;
+use AppBundle\Entity\Formation;
+use AppBundle\Entity\Hobbie;
+use AppBundle\Entity\Language;
 use AppBundle\Entity\Project;
+use AppBundle\Entity\Skill;
 use AppBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -19,6 +27,9 @@ class PortfolioController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $categories = $this->get('doctrine')
+            ->getRepository(Category::class)
+            ->findAll();
 
         $about = $this->get('doctrine')
             ->getRepository(About::class)
@@ -38,7 +49,8 @@ class PortfolioController extends Controller
 
         return $this->render('front/index.html.twig', [
             'contact_form'  => $form->createView(),
-            'abouts'         => $about
+            'abouts'        => $about,
+            'categories'    => $categories
         ]);
     }
 
@@ -47,7 +59,43 @@ class PortfolioController extends Controller
      */
     public function cvAction()
     {
-        return $this->render('front/cv.html.twig');
+        $cv = $this->get('doctrine')
+            ->getRepository(Cv::class)
+            ->find(1);
+
+        $cvProjects = $this->get('doctrine')
+            ->getRepository(CvProject::class)
+            ->findAllData();
+
+        $cvExp = $this->get('doctrine')
+            ->getRepository(Experience::class)
+            ->findAllData();
+
+        $cvSkills = $this->get('doctrine')
+            ->getRepository(Skill::class)
+            ->findAllData();
+
+        $cvFormations = $this->get('doctrine')
+            ->getRepository(Formation::class)
+            ->findAllData();
+
+        $cvLanguages = $this->get('doctrine')
+            ->getRepository(Language::class)
+            ->findAllData();
+
+        $cvHobbies = $this->get('doctrine')
+            ->getRepository(Hobbie::class)
+            ->findAllData();
+
+        return $this->render('front/cv.html.twig', [
+            'data'              => $cv,
+            'dataProjects'      => $cvProjects,
+            'dataExperiences'   => $cvExp,
+            'dataSkills'        => $cvSkills,
+            'dataFormations'    => $cvFormations,
+            'dataLanguages'     => $cvLanguages,
+            'dataHobbies'       => $cvHobbies
+        ]);
     }
 
     /**
@@ -58,11 +106,13 @@ class PortfolioController extends Controller
     {
         $em = $this->get('doctrine')->getManager();
 
+
         if ($slug == 'all') {
             $getProjects = $em->getRepository(Project::class)->findAll();
         }
         else {
-            $getProjects = $em->getRepository(Project::class)->findBy(['categories' => $slug]);
+//            $getCategory = $em->getRepository(Category::class)->findOneBy(['name' => $slug]);
+            $getProjects = $em->getRepository(Project::class)->findByCategory($slug);
         }
 
         $paginator  = $this->get('knp_paginator');
@@ -71,7 +121,6 @@ class PortfolioController extends Controller
             $request->query->getInt('page', 1)/*page number*/,
             4/*limit per page*/
         );
-
 
         return $this->render('inc/portfolio_gallery.html.twig', [
             'projects' => $pagination_project,
