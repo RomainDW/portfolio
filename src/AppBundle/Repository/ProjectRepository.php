@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class ProjectRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByCategory($category){
+        $query = $this->createQueryBuilder('p')
+            ->select('p')
+            ->leftJoin('p.category', 'c')
+            ->addSelect('c');
+
+        $query = $query->add('where', $query->expr()->in('c', ':c'))
+            ->setParameter('c', $category)
+            ->getQuery()
+            ->getResult();
+
+        return $query;
+    }
 }
