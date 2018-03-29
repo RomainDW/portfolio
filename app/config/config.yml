@@ -68,7 +68,7 @@ swiftmailer:
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
-    port: '%mailer_port%'
+#    port: '%mailer_port%'
 #    encryption: '%mailer_encryption%'
 #    auth_mode: '%mailer_auth%'
     spool: { type: memory }
@@ -95,3 +95,7 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'      # sliding pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig'                          # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'                           # filters template
+
+#Config TinyMCE
+stfalcon_tinymce:
+    selector: "textarea"
