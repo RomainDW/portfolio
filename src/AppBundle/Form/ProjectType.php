@@ -43,7 +43,7 @@ class ProjectType extends AbstractType
             ->add('resume', TextareaType::class, [
                 'label' => 'Description',
                 'constraints' => [new NotBlank(['message' => 'Vous devez renseigner tous les champs'])],
-                'attr' => ['rows' => 5]
+                'attr' => ['rows' => '5', 'class' => 'tinymce'],
             ])
             ->add('link', TextType::class, [
                 'label' => 'Lien du site',

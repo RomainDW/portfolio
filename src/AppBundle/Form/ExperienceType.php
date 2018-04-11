@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,14 @@ class ExperienceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('company')->add('resume')->add('date')->add('send', SubmitType::class, [
+        $builder
+            ->add('name')
+            ->add('company')
+            ->add('resume', TextareaType::class, [
+                'attr' => ['rows' => '10', 'class' => 'tinymce'],
+            ])
+            ->add('date')
+            ->add('send', SubmitType::class, [
             'label' => 'Envoyer',
             'attr' => ['class' => 'btn-xl btn-success sr-button']]);
     }/**

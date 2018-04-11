@@ -14,7 +14,12 @@ class FormationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('niv')->add('name')->add('school')->add('date')->add('send', SubmitType::class, [
+        $builder
+            ->add('niv')
+            ->add('name')
+            ->add('school')
+            ->add('date')
+            ->add('send', SubmitType::class, [
             'label' => 'Envoyer',
             'attr' => ['class' => 'btn-xl btn-success sr-button']]);
     }/**
