@@ -17,6 +17,130 @@
             </div>
         {% endfor %}
 
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box facebook">
+                    <i class="fa fa-facebook"></i>
+                    <ul>
+                        <li>
+                            <strong><span class="count">{{ nbrFriends }}</span>
+                                <span>friends</span>
+                            </strong></li>
+                        <li>
+                            <strong><span class="count">{{ nbrFeed }}</span>
+                                <span>feeds</span>
+                            </strong></li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box twitter">
+                    <i class="fa fa-twitter"></i>
+                    <ul>
+                        <li>
+                            <strong><span class="count">{{ twitter.friends_count }}</span>
+                                <span>friends</span>
+                            </strong></li>
+                        <li>
+                            <strong><span class="count">{{ twitter.statuses_count }}</span>
+                                <span>tweets</span>
+                            </strong></li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box linkedin">
+                    <i class="fa fa-linkedin"></i>
+                    <ul>
+                        <li>
+                            <strong><span class="count">40 +</span>
+                                <span>contacts</span>
+                            </strong></li>
+                        <li>
+                            <strong><span class="count">250</span>
+                                <span>feeds</span>
+                            </strong></li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="social-box google-plus">
+                    <i class="fa fa-google-plus"></i>
+                    <ul>
+                        <li>
+                            <strong><span class="count">94 k</span>
+                                <span>followers</span>
+                            </strong></li>
+                        <li>
+                            <strong><span class="count">92</span>
+                                <span>circles</span>
+                            </strong></li>
+                    </ul>
+                </div>
+                <!--/social-box-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-6">
+                <section class="card">
+                    <div class="twt-feed blue-bg">
+                        <div class="fa fa-twitter wtt-mark"></div>
+                        <div class="media">
+                            {#<a href="#">#}
+                                {#<img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="{{ twitter.profile_image_url }}">#}
+                            {#</a>#}
+                            <div class="media-body">
+                                <h2 class="text-white display-6">{{ twitter.name }}</h2>
+                                <p class="text-light">{{ twitter.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-category twt-category">
+                        <ul class="p-0">
+                            <li class="active">
+                                <h5>{{ twitter.statuses_count }}</h5>
+                                Tweets
+                            </li>
+                            <li>
+                                <h5>{{ twitter.friends_count}}</h5>
+                                Following
+                            </li>
+                            <li>
+                                <h5>{{ twitter.followers_count }}</h5>
+                                Followers
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="twt-write col-sm-12">
+                        {% for type, flashes in app.session.flashbag.all %}
+                            {% for flash in flashes %}
+                                <div class="alert alert-{{ type }} fade-in">
+                                    {{ flash }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {{ form(form) }}
+                    </div>
+                    <footer class="twt-footer">
+                        <a href="#"><i class="fa fa-camera"></i></a>
+                        <a href="#"><i class="fa fa-map-marker"></i></a>
+                        {{ twitter.location }}
+                        <span class="pull-right">
+                            32
+                        </span>
+                    </footer>
+                </section>
+            </div>
+        </div>
+
+
     </div>
     <!-- /.container-fluid-->
 {% endblock %}
