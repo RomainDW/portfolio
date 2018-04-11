@@ -35,12 +35,12 @@
         <!-- ===== Scripts ===== -->
 
         <!-- Bootstrap core JavaScript -->
-        <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/vendor/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ absolute_url(asset('js/vendor/jquery.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('js/vendor/bootstrap.bundle.min.js')) }}"></script>
 
         <!-- Plugin JavaScript -->
-        <script src="{{ asset('js/vendor/jquery.easing.min.js') }}"></script>
-        <script src="{{ asset('js/vendor/scrollreveal.min.js') }}"></script>
+        <script src="{{ absolute_url(asset('js/vendor/jquery.easing.min.js')) }}"></script>
+        <script src="{{ absolute_url(asset('js/vendor/scrollreveal.min.js')) }}"></script>
 
         <!-- Custom scripts -->
         {% block javascripts %}{% endblock %}
