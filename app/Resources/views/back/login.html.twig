@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('build/css/admin/admin.css') }}" rel="stylesheet" type="text/css">
+    <style>body {background: #343a40;}</style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if error %}
+        <div class="alert alert-danger col-md-5 mx-auto text-center" role="alert">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+        {% endif %}
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Connexion</div>
+            <div class="card-body">
+                {{ form_start(form) }}
+                {{ form_row(form._username) }}
+                {{ form_row(form._password) }}
+                <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
