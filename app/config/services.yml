@@ -51,3 +51,20 @@ services:
         arguments: ["@upload.annotation_reader", "@upload.handler"]
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+
+    app.security.login_form_authenticator:
+        class: AppBundle\Security\LoginFormAuthenticator
+        public: true
+        autowire: true
+
+    app.doctrine.hash_password_listener:
+        class: AppBundle\Doctrine\HashPasswordListener
+        public: true
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    app_core.twitter:
+         class: AppBundle\Twitter\Twitter
+         public: true
+         arguments: ["%twitter_consumer_key%","%twitter_consumer_secret%","%twitter_access_token%","%twitter_access_secret%"]
