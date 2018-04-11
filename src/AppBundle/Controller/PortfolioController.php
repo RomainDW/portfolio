@@ -14,10 +14,12 @@ use AppBundle\Entity\Language;
 use AppBundle\Entity\Project;
 use AppBundle\Entity\Skill;
 use AppBundle\Form\ContactType;
+use Knp\Snappy\Pdf;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PortfolioController extends Controller
 {
@@ -111,7 +113,6 @@ class PortfolioController extends Controller
             $getProjects = $em->getRepository(Project::class)->findAll();
         }
         else {
-//            $getCategory = $em->getRepository(Category::class)->findOneBy(['name' => $slug]);
             $getProjects = $em->getRepository(Project::class)->findByCategory($slug);
         }
 
@@ -125,5 +126,69 @@ class PortfolioController extends Controller
         return $this->render('inc/portfolio_gallery.html.twig', [
             'projects' => $pagination_project,
         ]);
+    }
+
+    /**
+     * @return Response
+     * @Route("/cv-pdf", name="CV")
+     */
+    public function PdfAction()
+    {
+
+        $cv = $this->get('doctrine')
+            ->getRepository(Cv::class)
+            ->find(1);
+
+        $cvProjects = $this->get('doctrine')
+            ->getRepository(CvProject::class)
+            ->findAllData();
+
+        $cvExp = $this->get('doctrine')
+            ->getRepository(Experience::class)
+            ->findAllData();
+
+        $cvSkills = $this->get('doctrine')
+            ->getRepository(Skill::class)
+            ->findAllData();
+
+        $cvFormations = $this->get('doctrine')
+            ->getRepository(Formation::class)
+            ->findAllData();
+
+        $cvLanguages = $this->get('doctrine')
+            ->getRepository(Language::class)
+            ->findAllData();
+
+        $cvHobbies = $this->get('doctrine')
+            ->getRepository(Hobbie::class)
+            ->findAllData();
+
+
+        $html = $this->renderView('front/cv-pdf.html.twig', [
+            'data'              => $cv,
+            'dataProjects'      => $cvProjects,
+            'dataExperiences'   => $cvExp,
+            'dataSkills'        => $cvSkills,
+            'dataFormations'    => $cvFormations,
+            'dataLanguages'     => $cvLanguages,
+            'dataHobbies'       => $cvHobbies
+        ]);
+
+        $filename = "CV Romain Ollier";
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html, [
+                'margin-top'        => 0,
+                'margin-bottom'     => 0,
+                'margin-right'      => 0,
+                'margin-left'       => 0,
+                'enable-javascript' => true
+            ]),
+            200,
+            [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'attachment; filename="'.$filename.'.pdf"'
+            ]
+        );
     }
 }
