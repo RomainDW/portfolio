@@ -1,6 +1,7 @@
 {
   "build/css/admin/admin.css": "/build/css/admin/admin.css",
   "build/css/app.css": "/build/css/app.css",
+  "build/css/cv/cv-pdf.css": "/build/css/cv/cv-pdf.css",
   "build/css/cv/cv.css": "/build/css/cv/cv.css",
   "build/images/header.jpg": "/build/images/header.fb7e411a.jpg",
   "build/images/header.js": "/build/images/header.js",
