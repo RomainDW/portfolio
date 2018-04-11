@@ -14,6 +14,7 @@ Encore
 
     .addStyleEntry('css/app', './assets/css/app.css')
     .addStyleEntry('css/cv/cv', './assets/css/cv/cv.css')
+    .addStyleEntry('css/cv/cv-pdf', './assets/css/cv/cv-pdf.css')
     .addStyleEntry('css/admin/admin', './assets/css/admin/admin.css')
 
 
