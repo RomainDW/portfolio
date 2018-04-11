@@ -477,11 +477,6 @@ footer.sticky-footer {
   }
 }
 
-.form-control {
-  border: 1px solid #757575;
-}
-
-
 .card-btn {
   margin-bottom: 15px;
 }
@@ -493,3 +488,93 @@ footer.sticky-footer {
 .active-link{
     color: #ffffff !important;
 }
+
+.social-box {
+  min-height: 160px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: #fff; }
+.social-box i {
+  display: block;
+  margin: -1px -1px 0;
+  font-size: 40px;
+  line-height: 90px;
+  background: #e9ecef; }
+.social-box .chart-wrapper {
+  height: 90px;
+  margin: -90px 0 0; }
+.social-box .chart-wrapper canvas {
+  width: 100% !important;
+  height: 90px !important; }
+.social-box ul {
+  padding: 10px 0;
+  list-style: none; }
+.social-box ul li {
+  display: block;
+  float: left;
+  width: 50%;
+  padding-top: 10px;
+  font-size: 18px; }
+.social-box ul li:first-child {
+  border-right: 1px solid #c2cfd6; }
+.social-box ul li strong {
+  display: block;
+  font-size: 20px; }
+.social-box ul li span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #949CA0;
+  text-transform: uppercase; }
+.social-box.facebook i {
+  color: #fff;
+  background: #3b5998; }
+.social-box.twitter i {
+  color: #fff;
+  background: #00aced; }
+.social-box.linkedin i {
+  color: #fff;
+  background: #4875b4; }
+.social-box.google-plus i {
+  color: #fff;
+  background: #d34836; }
+
+.twt-feed .wtt-mark {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 160px;
+  position: absolute;
+  top: 10px;
+  left: 40%; }
+
+.twt-feed {
+  -webkit-border-radius: 4px 4px 0 0;
+  color: #FFFFFF;
+  padding: 40px 10px 10px;
+  position: relative;
+  min-height: 170px; }
+
+.weather-category {
+  padding: 15px 0;
+  color: #74829C; }
+.weather-category ul li {
+  width: 32%;
+  text-align: center;
+  display: inline-block; }
+
+.twt-feed.blue-bg {
+  background: #58C9F3; }
+
+.twt-category {
+  display: inline-block;
+  margin-bottom: 11px;
+  margin-top: 10px;
+  width: 100%; }
+.twt-category ul li {
+  color: #bdbdbd;
+  font-size: 13px; }
+
+.twt-footer {
+  padding: 12px 15px; }
+
+.twt-footer, .twt-footer a {
+  color: #d2d2d2; }
+
