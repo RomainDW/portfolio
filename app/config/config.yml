@@ -98,4 +98,15 @@ knp_paginator:
 
 #Config TinyMCE
 stfalcon_tinymce:
-    selector: "textarea"
+    selector: ".tinymce"
+
+# app/config/config.yml
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []
+    image:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
+        options:    []
