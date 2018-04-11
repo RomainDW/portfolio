@@ -4,8 +4,8 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        our_users:
+            entity: { class: AppBundle\Entity\User, property: email }
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -23,3 +23,15 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+            guard:
+                authenticators:
+                    - app.security.login_form_authenticator
+
+            logout:
+                path: /logout
+
+    encoders:
+        AppBundle\Entity\User: bcrypt
+
+    access_control:
+            - { path: ^/admin, roles: ROLE_ADMIN }
