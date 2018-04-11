@@ -26,6 +26,7 @@
                         <thead>
                         <tr>
                             <th>Nom du projet</th>
+                            <th>Catégorie(s)</th>
                             <th>Date de Création</th>
                             <th>Action</th>
                         </tr>
@@ -34,6 +35,15 @@
                         {% for project in projects  %}
                             <tr>
                                 <td>{{ project.name }}</td>
+                                <td>
+                                {% for category in project.category %}
+                                    {% if category.name == project.category|last.name%}
+                                        {{ category.name }}
+                                    {% else %}
+                                        {{ category.name }} |
+                                    {% endif %}
+                                {% endfor %}
+                                </td>
                                 <td>{{ project.createdDate | date('d-m-Y') }}</td>
                                 <td>
                                     <a href="{{ path('Edit project', {id : project.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
