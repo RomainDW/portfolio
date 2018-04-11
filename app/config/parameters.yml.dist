@@ -1,19 +1,15 @@
-# This file is a "template" of what your parameters.yml file should look like
-# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
-# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
     database_host: 127.0.0.1
-    database_port: ~
-    database_name: symfony
+    database_port: null
+    database_name: portfolio
     database_user: root
-    database_password: ~
-    # You should uncomment this if you want to use pdo_sqlite
-    #database_path: '%kernel.project_dir%/var/data/data.sqlite'
-
+    database_password: null
     mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: ~
-    mailer_password: ~
-
-    # A secret key that's used to generate certain security-related tokens
-    secret: ThisTokenIsNotSoSecretChangeIt
+    mailer_host: mail.romain-ollier.com
+    mailer_user: contact@romain-ollier.com
+    mailer_password: Ollier121997
+    secret: e320156e0672ed06cbb36401e8cc02d3f10b6a55
+    twitter_consumer_key: C1oEtK92CkCuYrvaG6br7Xxb8
+    twitter_consumer_secret: YNuSF1Il53yETZrwQoWEeJeC3f6ctJDNnaBOZwjsUHxOBXNF7G
+    twitter_access_token: 3010312227-915o3ZKFV1DpTS6PTlUFUldAN0WT3MCHOswSvsV
+    twitter_access_secret: 28J5t2zxWZvvc9ZmMlLBis48jIFyDTtovQvCNWrPFQX5g
