@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Twitter;
+namespace AppBundle\Social;
 
 
 use Abraham\TwitterOAuth\TwitterOAuth;
