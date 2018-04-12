@@ -8,8 +8,12 @@ parameters:
     mailer_host: mail.romain-ollier.com
     mailer_user: contact@romain-ollier.com
     mailer_password: Ollier121997
+    mailer_port: 26
     secret: e320156e0672ed06cbb36401e8cc02d3f10b6a55
     twitter_consumer_key: C1oEtK92CkCuYrvaG6br7Xxb8
     twitter_consumer_secret: YNuSF1Il53yETZrwQoWEeJeC3f6ctJDNnaBOZwjsUHxOBXNF7G
     twitter_access_token: 3010312227-915o3ZKFV1DpTS6PTlUFUldAN0WT3MCHOswSvsV
     twitter_access_secret: 28J5t2zxWZvvc9ZmMlLBis48jIFyDTtovQvCNWrPFQX5g
+    facebook_app_id: 444713825964663
+    facebook_app_secret: 53e84c8c95ab5fcf05382d2692de8468
+    facebook_graph_version: v2.10
