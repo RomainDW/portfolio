@@ -65,6 +65,11 @@ services:
             - { name: doctrine.event_subscriber }
 
     app_core.twitter:
-         class: AppBundle\Twitter\Twitter
+         class: AppBundle\Social\Twitter
          public: true
          arguments: ["%twitter_consumer_key%","%twitter_consumer_secret%","%twitter_access_token%","%twitter_access_secret%"]
+
+    app_core.facebook:
+        class: AppBundle\Social\Facebook
+        public: true
+        arguments: ["%facebook_app_id%","%facebook_app_secret%","%facebook_graph_version%"]
