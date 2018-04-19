@@ -74,8 +74,6 @@ $(document).ready(function(){
 
     $(document).on('submit', '.cv-edit', function (e) {
 
-        console.log('je clique sur modifier');
-
         e.preventDefault();
 
         var value = $(this).attr('data-filter');
