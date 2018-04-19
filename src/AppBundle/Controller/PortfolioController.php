@@ -7,6 +7,7 @@ use AppBundle\Entity\About;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Cv;
 use AppBundle\Entity\CvProject;
+use AppBundle\Entity\Download;
 use AppBundle\Entity\Experience;
 use AppBundle\Entity\Formation;
 use AppBundle\Entity\Hobbie;
@@ -173,6 +174,17 @@ class PortfolioController extends Controller
             'dataLanguages'     => $cvLanguages,
             'dataHobbies'       => $cvHobbies
         ]);
+
+        $download = $this->get('doctrine')
+            ->getRepository(Download::class)
+            ->findOneBy(['name' => 'cv']);
+        $nbr = $download->getNumber();
+        $newNbr = $nbr+1;
+        $download->setNumber($newNbr);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($download);
+        $em->flush();
 
         $filename = "CV Romain Ollier";
 
