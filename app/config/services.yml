@@ -73,3 +73,8 @@ services:
         class: AppBundle\Social\Facebook
         public: true
         arguments: ["%facebook_app_id%","%facebook_app_secret%","%facebook_graph_version%"]
+
+    filter_service:
+        class: AppBundle\Service\Filter
+        public: true
+        arguments: ["@form.factory", "@doctrine.orm.entity_manager"]
