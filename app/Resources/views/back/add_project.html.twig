@@ -39,4 +39,8 @@
     </div>
 </div>
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/admin/add-category-ajax.js') }}"></script>
+{% endblock %}
 
