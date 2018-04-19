@@ -62,43 +62,9 @@ class PortfolioController extends Controller
      */
     public function cvAction()
     {
-        $cv = $this->get('doctrine')
-            ->getRepository(Cv::class)
-            ->find(1);
+        $parameters = $this->get('cv_entities')->parameters();
 
-        $cvProjects = $this->get('doctrine')
-            ->getRepository(CvProject::class)
-            ->findAllData();
-
-        $cvExp = $this->get('doctrine')
-            ->getRepository(Experience::class)
-            ->findAllData();
-
-        $cvSkills = $this->get('doctrine')
-            ->getRepository(Skill::class)
-            ->findAllData();
-
-        $cvFormations = $this->get('doctrine')
-            ->getRepository(Formation::class)
-            ->findAllData();
-
-        $cvLanguages = $this->get('doctrine')
-            ->getRepository(Language::class)
-            ->findAllData();
-
-        $cvHobbies = $this->get('doctrine')
-            ->getRepository(Hobbie::class)
-            ->findAllData();
-
-        return $this->render('front/cv.html.twig', [
-            'data'              => $cv,
-            'dataProjects'      => $cvProjects,
-            'dataExperiences'   => $cvExp,
-            'dataSkills'        => $cvSkills,
-            'dataFormations'    => $cvFormations,
-            'dataLanguages'     => $cvLanguages,
-            'dataHobbies'       => $cvHobbies
-        ]);
+        return $this->render('front/cv.html.twig', $parameters);
     }
 
     /**
@@ -135,56 +101,11 @@ class PortfolioController extends Controller
      */
     public function PdfAction()
     {
+        $servicePdf = $this->get('cv_entities');
+        $parameters = $servicePdf->parameters();
+        $servicePdf->oneMoreDownload();
 
-        $cv = $this->get('doctrine')
-            ->getRepository(Cv::class)
-            ->find(1);
-
-        $cvProjects = $this->get('doctrine')
-            ->getRepository(CvProject::class)
-            ->findAllData();
-
-        $cvExp = $this->get('doctrine')
-            ->getRepository(Experience::class)
-            ->findAllData();
-
-        $cvSkills = $this->get('doctrine')
-            ->getRepository(Skill::class)
-            ->findAllData();
-
-        $cvFormations = $this->get('doctrine')
-            ->getRepository(Formation::class)
-            ->findAllData();
-
-        $cvLanguages = $this->get('doctrine')
-            ->getRepository(Language::class)
-            ->findAllData();
-
-        $cvHobbies = $this->get('doctrine')
-            ->getRepository(Hobbie::class)
-            ->findAllData();
-
-
-        $html = $this->renderView('front/cv-pdf.html.twig', [
-            'data'              => $cv,
-            'dataProjects'      => $cvProjects,
-            'dataExperiences'   => $cvExp,
-            'dataSkills'        => $cvSkills,
-            'dataFormations'    => $cvFormations,
-            'dataLanguages'     => $cvLanguages,
-            'dataHobbies'       => $cvHobbies
-        ]);
-
-        $download = $this->get('doctrine')
-            ->getRepository(Download::class)
-            ->findOneBy(['name' => 'cv']);
-        $nbr = $download->getNumber();
-        $newNbr = $nbr+1;
-        $download->setNumber($newNbr);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($download);
-        $em->flush();
+        $html = $this->renderView('front/cv-pdf.html.twig', $parameters);
 
         $filename = "CV Romain Ollier";
 
