@@ -1,0 +1,50 @@
+<div style="margin: 20px;">
+    {% if form is defined %}
+    {{ form_start(form, {'attr':{'data-filter' : 'experience', 'class' : 'experience cv-add'}}) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.company) }}
+    {{ form_row(form.resume) }}
+    {{ form_row(form.date) }}
+    {% endif %}
+
+    {% if edit_form is defined %}
+    {{ form_start(edit_form, {'attr':{'data-filter' : 'experience', 'class' : 'experience cv-edit', 'id-entity' : id}}) }}
+    {{ form_row(edit_form.name) }}
+    {{ form_row(edit_form.company) }}
+    {{ form_row(edit_form.resume) }}
+    {{ form_row(edit_form.date) }}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-3">
+            {% if form is defined %}
+            {{ form_row(form.send) }}
+            {{ form_end(form) }}
+            {% endif %}
+
+            {% if edit_form is defined %}
+            {{ form_row(edit_form.send, {'label' : 'Modifier'}) }}
+            {{ form_end(edit_form) }}
+            {% endif %}
+        </div>
+        <div class="col-md-3 offset-md-6 text-right">
+            {% if cancel is defined %}
+            {{ form_start(cancel, {'attr':{'data-filter' : 'filter_experience'}}) }}
+            {{ form_row(cancel.cancel, {'attr':{'data-filter' : 'experience', 'class' : 'form_cancel btn-secondary'}}) }}
+            {{ form_end(cancel) }}
+            {% endif %}
+
+            {% if edit_cancel is defined %}
+            {{ form_start(edit_cancel, {'attr':{'data-filter' : 'filter_experience'}}) }}
+            {{ form_row(edit_cancel.cancel, {'attr':{'data-filter' : 'experience', 'class' : 'form_edit_cancel btn-secondary', 'id-entity' : id}}) }}
+            {{ form_end(edit_cancel) }}
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+
+
+{#<script src="{{ asset('js/admin/edit-ajax.js') }}"></script>#}
+{#{{ tinymce_init() }}#}
