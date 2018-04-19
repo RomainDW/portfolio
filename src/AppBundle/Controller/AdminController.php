@@ -94,6 +94,7 @@ class AdminController extends Controller
 
     /**
      * @Route("/ajax-add/{slug}", name="Ajax Add", options = { "expose" = true })
+     * @Method({"POST"})
      */
     public function ajaxAddAction(Request $request, $slug)
     {
@@ -144,6 +145,7 @@ class AdminController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @Route("/ajax-edit/{slug}/{id}", name="Ajax Edit", options={ "expose" = true })
+     * @Method({"POST"})
      */
     public function AjaxEditAction(Request $request, $slug, $id)
     {
