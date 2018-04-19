@@ -10,15 +10,32 @@
         <li class="breadcrumb-item active">Projets</li>
         <li class="breadcrumb-item active">Ajouter un projet</li>
     </ol>
-    <div class="col-md-6">
+    <div class="row">
+        <div class="col-md-6">
 
-        {% for message in app.flashes('notice') %}
-            <div class="flash-notice alert alert-success" role="alert">
-                <strong>{{ message }}</strong>
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice alert alert-success" role="alert">
+                    <strong>{{ message }}</strong>
+                </div>
+            {% endfor %}
+
+            {{ form_start(project_form) }}
+            {{ form_row(project_form.name) }}
+            <div id="categories">
+                {{ form_row(project_form.category) }}
             </div>
-        {% endfor %}
-
-        {{ form(project_form) }}
+            {{ form_row(project_form.createdDate) }}
+            {{ form_row(project_form.file) }}
+            {{ form_row(project_form.resume) }}
+            {{ form_row(project_form.link) }}
+            {{ form_row(project_form.send) }}
+            {{ form_end(project_form) }}
+        </div>
+        <div class="col-md-6">
+            <div id="divCategory">
+                <button class="btn btn-success" id="addCategory" style="margin-top: 31.5px;">Ajouter une catégorie</button>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
