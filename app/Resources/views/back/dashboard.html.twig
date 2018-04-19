@@ -18,30 +18,30 @@
         {% endfor %}
 
         <div class="row">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6">
                 <div class="social-box facebook">
                     <i class="fa fa-facebook"></i>
                     <ul>
                         <li>
                             <strong><span class="count">{{ nbrFriends }}</span>
-                                <span>friends</span>
+                                <span>Amis</span>
                             </strong></li>
                         <li>
                             <strong><span class="count">{{ nbrFeed }}</span>
-                                <span>feeds</span>
+                                <span>Publications</span>
                             </strong></li>
                     </ul>
                 </div>
                 <!--/social-box-->
             </div>
 
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-6">
                 <div class="social-box twitter">
                     <i class="fa fa-twitter"></i>
                     <ul>
                         <li>
                             <strong><span class="count">{{ twitter.friends_count }}</span>
-                                <span>friends</span>
+                                <span>Amis</span>
                             </strong></li>
                         <li>
                             <strong><span class="count">{{ twitter.statuses_count }}</span>
@@ -51,44 +51,12 @@
                 </div>
                 <!--/social-box-->
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box linkedin">
-                    <i class="fa fa-linkedin"></i>
-                    <ul>
-                        <li>
-                            <strong><span class="count">40 +</span>
-                                <span>contacts</span>
-                            </strong></li>
-                        <li>
-                            <strong><span class="count">250</span>
-                                <span>feeds</span>
-                            </strong></li>
-                    </ul>
-                </div>
-                <!--/social-box-->
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="social-box google-plus">
-                    <i class="fa fa-google-plus"></i>
-                    <ul>
-                        <li>
-                            <strong><span class="count">94 k</span>
-                                <span>followers</span>
-                            </strong></li>
-                        <li>
-                            <strong><span class="count">92</span>
-                                <span>circles</span>
-                            </strong></li>
-                    </ul>
-                </div>
-                <!--/social-box-->
-            </div>
         </div>
 
+        <hr style="margin: 50px;">
+
         <div class="row">
-            <div class="col-xl-3 col-lg-6">
+            <div class="col-lg-3">
                 <section class="card">
                     <div class="twt-feed blue-bg">
                         <div class="fa fa-twitter wtt-mark"></div>
@@ -137,6 +105,32 @@
                         </span>
                     </footer>
                 </section>
+            </div>
+
+            <div class="col-lg-6">
+                <iframe src="https://calendar.google.com/calendar/embed?title=Agenda%20de%20Romain%20Ollier&amp;height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=romain.ollier34%40gmail.com&amp;color=%2329527A&amp;src=fr.french%23holiday%40group.v.calendar.google.com&amp;color=%230F4B38&amp;ctz=Europe%2FParis" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+
+            <div class="col-lg-3">
+
+                    <div class="card text-white bg-success" style="margin-bottom: 10px;">
+                        <div class="card-body">
+                            Téléchargement du CV : {{ nbrCvDownload }} fois
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-primary" style="margin-bottom: 10px;">
+                        <div class="card-body">
+                            Info :
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-secondary" style="margin-bottom: 10px;">
+                        <div class="card-body">
+                            Info :
+                        </div>
+                    </div>
+
             </div>
         </div>
 
