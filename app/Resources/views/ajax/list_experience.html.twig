@@ -1,0 +1,30 @@
+<div class="card-header">
+    <i class="fa fa-table"></i> Tableau des Expériences</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>Nom de l'expérience</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for experience in entities  %}
+                <tr>
+                    <td>{{ experience.name }}</td>
+                    <td>
+                        <button name="experience" data-filter="{{ experience.id }}" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
+                        <a href="{{ path('Delete experience', {id : experience.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card-btn col-md-3">
+    <button class="btn btn-success add-info" data-filter="experience"><i class="fa fa-plus"></i> Ajouter</button>
+</div>
+
+{#<script src="{{ asset('js/admin/edit-ajax.js') }}"></script>#}

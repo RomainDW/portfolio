@@ -1,0 +1,30 @@
+<div class="card-header">
+    <i class="fa fa-table"></i> Tableau des Compétences</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>Nom de la compétence</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for skill in entities  %}
+                <tr>
+                    <td>{{ skill.name }}</td>
+                    <td>
+                        <a href="{{ path('Edit CV compétence', {id : skill.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                        <a href="{{ path('Delete skill', {id : skill.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card-btn col-md-3">
+    <button class="btn btn-success add-info" data-filter="skill"><i class="fa fa-plus"></i> Ajouter</button>
+</div>
+
+{#<script src="{{ asset('js/admin/edit-ajax.js') }}"></script>#}
