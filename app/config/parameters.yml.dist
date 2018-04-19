@@ -1,0 +1,19 @@
+parameters:
+    database_host: ~
+    database_port: ~
+    database_name: ~
+    database_user: ~
+    database_password: ~
+    mailer_transport: ~
+    mailer_host: ~
+    mailer_user: ~
+    mailer_password: ~
+    mailer_port: ~
+    secret: ~
+    twitter_consumer_key: ~
+    twitter_consumer_secret: ~
+    twitter_access_token: ~
+    twitter_access_secret: ~
+    facebook_app_id: ~
+    facebook_app_secret: ~
+    facebook_graph_version: ~
