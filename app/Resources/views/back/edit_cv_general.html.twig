@@ -14,7 +14,7 @@
 
             <div class="col-md-6">
 
-                <div class="card mb-3">
+                <div class="card mb-3" id="formation">
                     <div class="card-header">
                         <i class="fa fa-table"></i> Tableau des Formation</div>
                     <div class="card-body">
@@ -31,8 +31,8 @@
                                     <tr>
                                         <td>{{ formation.name }}</td>
                                         <td>
-                                            <a href="{{ path('Edit CV formation', {id : formation.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
-                                            <a href="{{ path('Delete category', {id : formation.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                            <button name="formation" data-filter="{{ formation.id }}" id="edit-info" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
+                                            <a href="{{ path('Delete formation', {id : formation.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -41,11 +41,11 @@
                         </div>
                     </div>
                     <div class="card-btn col-md-3">
-                        <a class="btn btn-success" href="{{ path('Add CV Formation') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                        <button class="btn btn-success add-info" data-filter="formation"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
                 </div>
 
-                <div class="card mb-3">
+                <div class="card mb-3" id="language">
                     <div class="card-header">
                         <i class="fa fa-table"></i> Tableau des Langues</div>
                     <div class="card-body">
@@ -62,7 +62,7 @@
                                     <tr>
                                         <td>{{ language.name }}</td>
                                         <td>
-                                            <a href="{{ path('Edit CV Langue', {id : language.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <button name="language" data-filter="{{ language.id }}" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
                                             <a href="{{ path('Delete language', {id : language.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
                                         </td>
                                     </tr>
@@ -72,11 +72,11 @@
                         </div>
                     </div>
                     <div class="card-btn col-md-3">
-                        <a class="btn btn-success" href="{{ path('Add CV Langue') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                        <button class="btn btn-success add-info" data-filter="language"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
                 </div>
 
-                <div class="card mb-3">
+                <div class="card mb-3" id="hobbie">
                     <div class="card-header">
                         <i class="fa fa-table"></i> Tableau des Hobbies</div>
                     <div class="card-body">
@@ -93,8 +93,8 @@
                                     <tr>
                                         <td>{{ hobbie.name }}</td>
                                         <td>
-                                            <a href="{{ path('Edit CV Hobbie', {id : hobbie.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
-                                            <a href="{{ path('Delete hobbie', {id : hobbie.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                            <button name="hobbie" data-filter="{{ hobbie.id }}" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
+                                            <a href="{{ path('Delete hobbie', {id : hobbie.id}) }}" class="btn btn-danger edit-info"><i class="fa fa-trash"></i> Supprimer</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
@@ -103,7 +103,38 @@
                         </div>
                     </div>
                     <div class="card-btn col-md-3">
-                        <a class="btn btn-success" href="{{ path('Add CV Hobbie') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                        <button class="btn btn-success add-info" data-filter="hobbie"><i class="fa fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+
+                <div class="card mb-3" id="experience">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Tableau des Expériences</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Nom de l'expérience</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for experience in experiences  %}
+                                    <tr>
+                                        <td>{{ experience.name }}</td>
+                                        <td>
+                                            <button name="experience" data-filter="{{ experience.id }}" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
+                                            <a href="{{ path('Delete experience', {id : experience.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-btn col-md-3">
+                        <button class="btn btn-success add-info" data-filter="experience"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
                 </div>
 
@@ -122,38 +153,7 @@
             </div>
             <div class="col-md-12">
 
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fa fa-table"></i> Tableau des Expériences</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>Nom de l'expérience</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for experience in experiences  %}
-                                    <tr>
-                                        <td>{{ experience.name }}</td>
-                                        <td>
-                                            <a href="{{ path('Edit CV experience', {id : experience.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
-                                            <a href="{{ path('Delete experience', {id : experience.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card-btn col-md-3">
-                        <a class="btn btn-success" href="{{ path('Add CV Expérience') }}"><i class="fa fa-plus"></i> Ajouter</a>
-                    </div>
-                </div>
-
-                <div class="card mb-3">
+                <div class="card mb-3" id="skill">
                     <div class="card-header">
                         <i class="fa fa-table"></i> Tableau des Compétences</div>
                     <div class="card-body">
@@ -170,7 +170,7 @@
                                     <tr>
                                         <td>{{ skill.name }}</td>
                                         <td>
-                                            <a href="{{ path('Edit CV compétence', {id : skill.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <button name="skill" data-filter="{{ skill.id }}" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
                                             <a href="{{ path('Delete skill', {id : skill.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
                                         </td>
                                     </tr>
@@ -180,11 +180,11 @@
                         </div>
                     </div>
                     <div class="card-btn col-md-3">
-                        <a class="btn btn-success" href="{{ path('Add CV Compétence') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                        <button class="btn btn-success add-info" data-filter="skill"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
                 </div>
 
-                <div class="card mb-3">
+                <div class="card mb-3" id="cv-project">
                     <div class="card-header">
                         <i class="fa fa-table"></i> Tableau des Projets</div>
                     <div class="card-body">
@@ -201,7 +201,7 @@
                                     <tr>
                                         <td>{{ project.name }}</td>
                                         <td>
-                                            <a href="{{ path('Edit CV projet', {id : project.id}) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Editer</a>
+                                            <button name="cv-project" data-filter="{{ project.id }}" class="btn btn-primary edit-info"><i class="fa fa-pencil"></i> Editer</button>
                                             <a href="{{ path('Delete CV project', {id : project.id}) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
                                         </td>
                                     </tr>
@@ -211,7 +211,7 @@
                         </div>
                     </div>
                     <div class="card-btn col-md-3">
-                        <a class="btn btn-success" href="{{ path('Add CV Projet') }}"><i class="fa fa-plus"></i> Ajouter</a>
+                        <button class="btn btn-success add-info" data-filter="cv-project"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
                 </div>
 
