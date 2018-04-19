@@ -90,6 +90,6 @@ class LanguageController extends Controller
             'Langue supprimée !'
         );
 
-        return $this->redirectToRoute('Edit CV Langue');
+        return $this->redirectToRoute('Edit CV general', ['id' => 1]);
     }
 }

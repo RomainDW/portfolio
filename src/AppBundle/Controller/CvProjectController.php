@@ -90,6 +90,6 @@ class CvProjectController extends Controller
             'Projet supprimé !'
         );
 
-        return $this->redirectToRoute('Edit CV projet');
+        return $this->redirectToRoute('Edit CV general', ['id' => 1]);
     }
 }

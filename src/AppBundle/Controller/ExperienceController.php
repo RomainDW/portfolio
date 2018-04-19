@@ -90,6 +90,6 @@ class ExperienceController extends Controller
             'Expérience supprimée !'
         );
 
-        return $this->redirectToRoute('Edit CV experience');
+        return $this->redirectToRoute('Edit CV general', ['id' => 1]);
     }
 }

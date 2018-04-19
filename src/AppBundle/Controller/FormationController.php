@@ -96,6 +96,6 @@ class FormationController extends Controller
             'Formation supprimée !'
         );
 
-        return $this->redirectToRoute('Edit CV formation');
+        return $this->redirectToRoute('Edit CV general', ['id' => 1]);
     }
 }

@@ -90,6 +90,6 @@ class HobbieController extends Controller
             'Hobbie supprimé !'
         );
 
-        return $this->redirectToRoute('Edit CV Hobbie');
+        return $this->redirectToRoute('Edit CV general', ['id' => 1]);
     }
 }
