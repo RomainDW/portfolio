@@ -16,10 +16,15 @@ class ExperienceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('company')
+            ->add('name', null, [
+                'label' => 'Nom'
+            ])
+            ->add('company', null, [
+                'label' => 'Entreprise'
+            ])
             ->add('resume', TextareaType::class, [
-                'attr' => ['rows' => '10', 'class' => 'tinymce'],
+                'attr'  => ['rows' => '10', 'class' => 'tinymce'],
+                'label' => 'Description'
             ])
             ->add('date')
             ->add('send', SubmitType::class, [

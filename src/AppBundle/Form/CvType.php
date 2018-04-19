@@ -16,17 +16,25 @@ class CvType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('intro')
+            ->add('intro', null, [
+                'attr' => ['class' => 'tinymce']
+            ])
             ->add('mail')
             ->add('phone')
             ->add('website')
             ->add('websiteLink')
             ->add('linkedin')
-            ->add('linkedinLink')
+            ->add('linkedinLink',null, [
+                'label' => 'Lien Linkedin'
+            ])
             ->add('github')
-            ->add('githubLink')
+            ->add('githubLink', null, [
+                'label' => 'Lien Github'
+            ])
             ->add('twitter')
-            ->add('twitterLink')
+            ->add('twitterLink', null, [
+                'label' => 'Lien twitter'
+            ])
             ->add('name')
             ->add('job')
             ->add('file', FileType::class, [

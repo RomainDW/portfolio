@@ -14,7 +14,14 @@ class SkillType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('niv')->add('send', SubmitType::class, [
+        $builder
+            ->add('name', null, [
+                'label' => 'Nom'
+            ])
+            ->add('niv', null, [
+                'label' => 'Niveau'
+            ])
+            ->add('send', SubmitType::class, [
             'label' => 'Envoyer',
             'attr' => ['class' => 'btn-xl btn-success sr-button']]);
     }/**

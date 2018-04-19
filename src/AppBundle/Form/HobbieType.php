@@ -15,7 +15,9 @@ class HobbieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', null, [
+                'label' => 'Nom'
+            ])
             ->add('send', SubmitType::class, [
             'label' => 'Envoyer',
             'attr' => ['class' => 'btn-xl btn-success sr-button']]);
