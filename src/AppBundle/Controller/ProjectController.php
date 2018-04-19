@@ -110,7 +110,7 @@ class ProjectController extends Controller
             'Projet supprimé !'
         );
 
-        return $this->redirectToRoute('Dashboard');
+        return $this->redirectToRoute('Edit projects');
     }
 
 }

@@ -74,7 +74,7 @@ class SkillController extends Controller
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      *
-     * @Route("/admin/delete-formation/{id}", name="Delete skill")
+     * @Route("/admin/delete-skill/{id}", name="Delete skill")
      */
     public function deleteSkillAction($id)
     {
@@ -90,6 +90,6 @@ class SkillController extends Controller
             'Compétence supprimée !'
         );
 
-        return $this->redirectToRoute('Edit CV compétence');
+        return $this->redirectToRoute('Edit CV general', ['id' => 1]);
     }
 }
