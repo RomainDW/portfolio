@@ -78,3 +78,8 @@ services:
         class: AppBundle\Service\Filter
         public: true
         arguments: ["@form.factory", "@doctrine.orm.entity_manager"]
+
+    cv_entities:
+        class: AppBundle\Service\CvEntities
+        public: true
+        arguments: ["@doctrine.orm.entity_manager"]
