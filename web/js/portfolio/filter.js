@@ -1,8 +1,12 @@
 $(document).ready(function(){
 
+
+
     var time = 2300;
     var value = 'all';
     var url = Routing.generate('filter', { slug: value });
+
+    ajaxCallPortfolio(url, time);
 
     setTimeout(
         function () {
@@ -15,8 +19,6 @@ $(document).ready(function(){
             $('#loading').hide();
         }, time
     );
-
-    ajaxCallPortfolio(url, time);
 
     $(".filter-button").click(function(){
         value = $(this).attr('data-filter');
@@ -43,6 +45,21 @@ $(document).ready(function(){
         ajaxCallPortfolio(url, time);
     });
 
+    $(document).on('click', '.page-link', function (e) {
+        $.ajax({
+            url: $(this).attr('href'),
+            type: 'post'
+        })
+            .done(function(data) {
+                $('#portfolio-container').html(data);
+                moove();
+            });
+        e.preventDefault();
+
+        var aid = '#portfolio';
+        $('html,body').animate({scrollTop: $(aid).offset().top}, 'slow');
+    })
+
 });
 
 function ajaxCallPortfolio (url, time) {
@@ -55,8 +72,14 @@ function ajaxCallPortfolio (url, time) {
             setTimeout(
                 function () {
                     $('#portfolio-container').html(data).show();
+                    moove();
                 }, time
             );
         });
 
+}
+function moove () {
+    console.log('test');
+    $('#modals').html(($('#toMoove').html()));
+    $('#toMoove').remove();
 }
