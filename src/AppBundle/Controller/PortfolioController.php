@@ -32,7 +32,7 @@ class PortfolioController extends Controller
     {
         $categories = $this->get('doctrine')
             ->getRepository(Category::class)
-            ->findAll();
+            ->findBy([], ['name' => 'ASC']);
 
         $about = $this->get('doctrine')
             ->getRepository(About::class)
