@@ -28,7 +28,113 @@
 
 <body class="fixed-nav sticky-footer" id="page-top" style="height: 100%;">
 
-{{ include(':inc:cv-include.html.twig') }}
+<div class="wrapper" style="height: 100%;">
+    <div class="sidebar-wrapper" style="height: 100%;">
+        <div class="profile-container">
+            <img class="profile" src="{{ absolute_url(asset(data.file.pathName)) }}" alt="Photo de profile de {{ data.name }}" />
+            <h1 class="name">{{ data.name }}</h1>
+            <h3 class="tagline">{{ data.job }}</h3>
+        </div><!--//profile-container-->
+
+        <div class="contact-container container-block">
+            <ul class="list-unstyled contact-list">
+                <li class="email"><i class="fa fa-envelope"></i><a href="mailto: {{ data.mail }}">{{ data.mail }}</a></li>
+                <li class="phone"><i class="fa fa-phone"></i><a href="tel:{{ data.phone }}">{{ data.phone }}</a></li>
+                <li class="website"><i class="fa fa-globe"></i><a href="{{ data.websiteLink }}" target="_blank">{{ data.website }}</a></li>
+                <li class="linkedin"><i class="fa fa-linkedin"></i><a href="{{ data.linkedinLink }}" target="_blank">{{ data.linkedin }}</a></li>
+                <li class="github"><i class="fa fa-github"></i><a href="{{ data.githubLink }}" target="_blank">{{ data.github }}</a></li>
+                <li class="twitter"><i class="fa fa-twitter"></i><a href="{{ data.twitterLink }}" target="_blank">{{ data.twitter }}</a></li>
+            </ul>
+        </div><!--//contact-container-->
+        <div class="education-container container-block">
+            <h2 class="container-block-title">Formations</h2>
+            {% for formation in dataFormations %}
+                <div class="item">
+                    <h4 class="degree">{{ formation.niv }} - {{ formation.name }}</h4>
+                    <h5 class="meta">{{ formation.school }}</h5>
+                    <div class="time">{{ formation.date }}</div>
+                </div><!--//item-->
+            {% endfor %}
+        </div><!--//education-container-->
+
+        <div class="languages-container container-block">
+            <h2 class="container-block-title">Langues</h2>
+            <ul class="list-unstyled interests-list">
+                {% for language in dataLanguages %}
+                    <li>{{ language.name }} <span class="lang-desc">({{ language.niv }})</span></li>
+                {% endfor %}
+            </ul>
+        </div><!--//Languages-->
+
+        <div class="interests-container container-block">
+            <h2 class="container-block-title">Hobbies</h2>
+            <ul class="list-unstyled interests-list">
+                {% for hobbie in dataHobbies %}
+                    <li>{{ hobbie.name }}</li>
+                {% endfor %}
+            </ul>
+        </div><!--//interests-->
+
+    </div><!--//sidebar-wrapper-->
+
+    <div class="main-wrapper">
+
+        <section class="section summary-section">
+            <h2 class="section-title"><i class="fa fa-user"></i>Introduction</h2>
+            <div class="summary">
+                {{ data.intro|raw }}
+            </div><!--//summary-->
+        </section><!--//section-->
+
+        <section style="page-break-inside:avoid;" class="section experiences-section">
+            <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
+
+            {% for exp in dataExperiences %}
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{ exp.name }}</h3>
+                            <div class="time">{{ exp.date }}</div>
+                        </div><!--//upper-row-->
+                        <div class="company">{{ exp.company }}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        {{ exp.resume|raw }}
+                    </div><!--//details-->
+                </div><!--//item-->
+            {% endfor %}
+
+        </section><!--//section-->
+
+        <section style="page-break-inside:avoid;" class="skills-section section">
+            <h2 class="section-title"><i class="fa fa-rocket"></i>Compétences &amp; Maîtrises</h2>
+            <div class="skillset">
+                {% for skill in dataSkills %}
+                    <div class="item">
+                        <h3 class="level-title">{{ skill.name }}</h3>
+                        <div class="level-bar">
+                            <div class="level-bar-inner" style="width : {{ skill.niv }}%">
+                            </div>
+                        </div><!--//level-bar-->
+                    </div><!--//item-->
+                {% endfor %}
+            </div>
+        </section><!--//skills-section-->
+
+        <section style="page-break-inside:avoid; padding-top: 50px;" class="section projects-section">
+            <h2 class="section-title"><i class="fa fa-archive"></i>Projets</h2>
+            <div class="intro">
+                <p>Liste de mes projets. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+            </div><!--//intro-->
+            {% for project in dataProjects %}
+                <div class="item">
+                    <span class="project-title"><a href="{{ project.link }}" target="_blank">{{ project.name }}</a></span>
+                    <span class="project-tagline">{{ project.resume|raw }}</span>
+                </div><!--//item-->
+            {% endfor %}
+        </section><!--//section-->
+    </div><!--//main-body-->
+</div>
 
 <!-- ===== Scripts ===== -->
 
@@ -39,8 +145,6 @@
 <!-- Plugin JavaScript -->
 <script src="{{ absolute_url(asset('js/vendor/jquery.easing.min.js')) }}"></script>
 
-<!-- Custom scripts -->
-<script src="{{ absolute_url(asset('js/cv/cv.js')) }}"></script>
 </body>
 </html>
 
