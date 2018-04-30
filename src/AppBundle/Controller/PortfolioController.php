@@ -23,7 +23,7 @@ class PortfolioController extends Controller
     {
         $categories = $this->get('doctrine')
             ->getRepository(Category::class)
-            ->findBy([], ['name' => 'ASC']);
+            ->findBy([], ['name' => 'ASC']); //trie par nom, ordre croissant
 
         $about = $this->get('doctrine')
             ->getRepository(About::class)
