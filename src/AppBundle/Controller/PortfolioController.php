@@ -5,17 +5,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\About;
 use AppBundle\Entity\Category;
-use AppBundle\Entity\Cv;
-use AppBundle\Entity\CvProject;
-use AppBundle\Entity\Download;
-use AppBundle\Entity\Experience;
-use AppBundle\Entity\Formation;
-use AppBundle\Entity\Hobbie;
-use AppBundle\Entity\Language;
 use AppBundle\Entity\Project;
-use AppBundle\Entity\Skill;
 use AppBundle\Form\ContactType;
-use Knp\Snappy\Pdf;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
